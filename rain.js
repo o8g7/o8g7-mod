@@ -36748,7 +36748,8 @@ Type: ${asset.type}`,
       init_storage();
       ({ useStore: useChatPlatformsSettings } = createPluginStore("chatplatforms", {
         showBots: false,
-        showSelf: true
+        showSelf: true,
+        emojiFallback: false
       }));
     }
   });
@@ -36771,31 +36772,44 @@ Type: ${asset.type}`,
           style: {
             flex: 1
           },
-          children: /* @__PURE__ */ jsx(Stack, {
+          children: /* @__PURE__ */ jsxs(Stack, {
             style: {
               paddingVertical: 12,
               paddingHorizontal: 12
             },
             spacing: 24,
-            children: /* @__PURE__ */ jsxs(TableRowGroup, {
-              title: "Afficher dans le chat",
-              children: [
-                /* @__PURE__ */ jsx(TableSwitchRow, {
-                  label: "Mes propres messages",
-                  value: settings3.showSelf,
-                  onValueChange: (v2) => updateSettings({
-                    showSelf: v2
+            children: [
+              /* @__PURE__ */ jsxs(TableRowGroup, {
+                title: "Afficher dans le chat",
+                children: [
+                  /* @__PURE__ */ jsx(TableSwitchRow, {
+                    label: "Mes propres messages",
+                    value: settings3.showSelf,
+                    onValueChange: (v2) => updateSettings({
+                      showSelf: v2
+                    })
+                  }),
+                  /* @__PURE__ */ jsx(TableSwitchRow, {
+                    label: "Les bots",
+                    value: settings3.showBots,
+                    onValueChange: (v2) => updateSettings({
+                      showBots: v2
+                    })
                   })
-                }),
-                /* @__PURE__ */ jsx(TableSwitchRow, {
-                  label: "Les bots",
-                  value: settings3.showBots,
+                ]
+              }),
+              /* @__PURE__ */ jsx(TableRowGroup, {
+                title: "Si la personne a d\xE9j\xE0 une ic\xF4ne de r\xF4le",
+                children: /* @__PURE__ */ jsx(TableSwitchRow, {
+                  label: "Afficher les plateformes en emoji",
+                  subLabel: "Sinon, rien n'est affich\xE9 pour cette personne",
+                  value: settings3.emojiFallback,
                   onValueChange: (v2) => updateSettings({
-                    showBots: v2
+                    emojiFallback: v2
                   })
                 })
-              ]
-            })
+              })
+            ]
           })
         });
       });
@@ -36807,22 +36821,42 @@ Type: ${asset.type}`,
   __export(chatplatforms_exports, {
     default: () => chatplatforms_default
   });
-  function getPlatforms(userId) {
-    var statuses;
+  function getStatuses(userId) {
     if (userId === UserStore.getCurrentUser()?.id) {
-      var sessions = SessionsStore.getSessions?.() ?? {};
-      statuses = {};
-      for (var session of Object.values(sessions)) {
+      var statuses = {};
+      for (var session of Object.values(SessionsStore.getSessions?.() ?? {})) {
         var client = session?.clientInfo?.client;
         if (client && client !== "unknown") statuses[client] = session.status;
       }
-    } else {
-      statuses = PresenceStore.getState?.()?.clientStatuses?.[userId];
+      return statuses;
     }
-    if (!statuses) return [];
-    return ORDER.filter((p) => statuses[p] && statuses[p] !== "offline" && statuses[p] !== "invisible");
+    return PresenceStore.getState?.()?.clientStatuses?.[userId] ?? {};
   }
-  var PLATFORM_ICONS, ORDER, MARK, patches34, chatplatforms_default;
+  function activePlatforms(userId) {
+    var statuses = getStatuses(userId);
+    return ORDER.filter((p) => STATUSES.has(statuses[p])).map((p) => [
+      p,
+      statuses[p]
+    ]);
+  }
+  function hasImageUrl(value) {
+    if (typeof value === "string") return /^https?:\/\//.test(value);
+    if (value && typeof value === "object") return Object.values(value).some(hasImageUrl);
+    return false;
+  }
+  function withUrl(template, url2, label) {
+    if (typeof template === "string") return /^https?:\/\//.test(template) ? url2 : template;
+    if (Array.isArray(template)) return template.map((v2) => withUrl(v2, url2, label));
+    if (!template || typeof template !== "object") return template;
+    var copy = {};
+    for (var [key, value] of Object.entries(template)) {
+      if (/emoji/i.test(key)) copy[key] = null;
+      else if (/^(name|alt|label|title|accessibilityLabel)$/i.test(key) && typeof value === "string") copy[key] = label;
+      else copy[key] = withUrl(value, url2, label);
+    }
+    return copy;
+  }
+  var ORDER, LABELS, EMOJIS, STATUSES, ASSETS_URL, MARK, patches34, roleIconTemplate, chatplatforms_default;
   var init_chatplatforms = __esm({
     "src/plugins/_o8g7/chatplatforms/index.ts"() {
       "use strict";
@@ -36831,26 +36865,43 @@ Type: ${asset.type}`,
       init_patcher();
       init_metro();
       init_stores();
+      init_config();
       init_plugins3();
       init_settings29();
       init_storage36();
-      PLATFORM_ICONS = {
-        desktop: "\u{1F5A5}\uFE0F",
-        mobile: "\u{1F4F1}",
-        web: "\u{1F310}",
-        embedded: "\u{1F3AE}"
-      };
       ORDER = [
         "desktop",
-        "mobile",
+        "vr",
+        "embedded",
         "web",
-        "embedded"
+        "mobile"
       ];
+      LABELS = {
+        desktop: "Ordinateur",
+        vr: "VR",
+        embedded: "Console",
+        web: "Navigateur",
+        mobile: "Mobile"
+      };
+      EMOJIS = {
+        desktop: "\u{1F5A5}\uFE0F",
+        vr: "\u{1F97D}",
+        embedded: "\u{1F3AE}",
+        web: "\u{1F310}",
+        mobile: "\u{1F4F1}"
+      };
+      STATUSES = /* @__PURE__ */ new Set([
+        "online",
+        "idle",
+        "dnd"
+      ]);
+      ASSETS_URL = BUNDLE_URL.replace(/[^/]*$/, "assets/platforms/");
       MARK = "\u2063";
       patches34 = [];
+      roleIconTemplate = null;
       chatplatforms_default = definePlugin({
         name: "ChatPlatforms",
-        description: "Affiche les plateformes (ordinateur, mobile, web, console) apr\xE8s le pseudo dans le chat.",
+        description: "Logos de plateforme (ordinateur, VR, console, web, mobile) \xE0 c\xF4t\xE9 du pseudo dans le chat.",
         author: [
           {
             name: "o8g7",
@@ -36858,20 +36909,36 @@ Type: ${asset.type}`,
           }
         ],
         id: "chatplatforms",
-        version: "1.0.0",
+        version: "2.0.0",
         start() {
           var RowManager6 = findByName("RowManager");
           if (!RowManager6?.prototype?.generate) return;
           patches34.push(after("generate", RowManager6.prototype, ([row], result) => {
             try {
               var message = result?.message;
-              if (row?.rowType !== 1 || !message?.username || !message.authorId) return;
-              if (typeof message.username !== "string" || message.username.includes(MARK)) return;
+              if (row?.rowType !== 1 || !message?.authorId) return;
+              var slotTaken = message.roleIcon != null;
+              if (!roleIconTemplate && slotTaken && hasImageUrl(message.roleIcon)) {
+                roleIconTemplate = message.roleIcon;
+              }
               var opts = useChatPlatformsSettings.getState();
               if (!opts.showBots && row.message?.author?.bot) return;
               if (!opts.showSelf && message.authorId === UserStore.getCurrentUser()?.id) return;
-              var icons = getPlatforms(message.authorId).map((p) => PLATFORM_ICONS[p]);
-              if (icons.length) message.username = `${message.username} ${MARK}${icons.join("")}`;
+              var platforms = activePlatforms(message.authorId);
+              if (!platforms.length) return;
+              if (!slotTaken && roleIconTemplate) {
+                var [platform, status] = platforms[0];
+                var others = platforms.slice(1).map(([p]) => LABELS[p]);
+                var label = [
+                  LABELS[platform],
+                  ...others
+                ].join(", ");
+                message.roleIcon = withUrl(roleIconTemplate, `${ASSETS_URL}${platform}-${status}.png`, label);
+                return;
+              }
+              if (opts.emojiFallback && typeof message.username === "string" && !message.username.includes(MARK)) {
+                message.username = `${message.username} ${MARK}${platforms.map(([p]) => EMOJIS[p]).join("")}`;
+              }
             } catch (unused) {
             }
           }));
@@ -37091,14 +37158,14 @@ Type: ${asset.type}`,
     }
   });
 
-  // rain-plugins-importer:C:\Users\lambo\Desktop\o8g7-ios\work\rain\src\plugins
+  // rain-plugins-importer:C:\Users\lambo\AppData\Local\Temp\claude\C--Users-lambo-Desktop-o8g7-ios\c079427c-49f1-4dbd-b5bf-738628fec37f\scratchpad\publish\work\rain\src\plugins
   var plugins_exports2 = {};
   __export(plugins_exports2, {
     default: () => plugins_default2
   });
   var plugins_default2;
   var init_plugins2 = __esm({
-    "rain-plugins-importer:C:\\Users\\lambo\\Desktop\\o8g7-ios\\work\\rain\\src\\plugins"() {
+    "rain-plugins-importer:C:\\Users\\lambo\\AppData\\Local\\Temp\\claude\\C--Users-lambo-Desktop-o8g7-ios\\c079427c-49f1-4dbd-b5bf-738628fec37f\\scratchpad\\publish\\work\\rain\\src\\plugins"() {
       init_asyncIteratorSymbol();
       init_promiseAllSettled();
       plugins_default2 = {

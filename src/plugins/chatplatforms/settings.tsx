@@ -22,6 +22,14 @@ export default () => {
                         onValueChange={(v: boolean) => updateSettings({ showBots: v })}
                     />
                 </TableRowGroup>
+                <TableRowGroup title="Si la personne a déjà une icône de rôle">
+                    <TableSwitchRow
+                        label="Afficher les plateformes en emoji"
+                        subLabel="Sinon, rien n'est affiché pour cette personne"
+                        value={settings.emojiFallback}
+                        onValueChange={(v: boolean) => updateSettings({ emojiFallback: v })}
+                    />
+                </TableRowGroup>
             </Stack>
         </ScrollView>
     );
