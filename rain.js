@@ -12536,7 +12536,7 @@ ${pendingInsertLink}` : pendingInsertLink;
       init_patcher();
       init_settings();
       VERSION = 1;
-      versionHash = "v0.10.0";
+      versionHash = "v1.2";
     }
   });
 
@@ -36643,7 +36643,7 @@ Type: ${asset.type}`,
                 tintColor: resolveSemanticColor(semanticColors.STATUS_WARNING)
               }
             });
-            return `(${"v0.10.0"})`;
+            return `(${"v1.2"})`;
           }
         },
         {
