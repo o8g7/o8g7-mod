@@ -5318,8 +5318,8 @@
                 }),
                 trailing: TableRow.Arrow,
                 onPress: () => {
-                  var { Linking: Linking7 } = require_react_native();
-                  Linking7.openURL("https://discord.gg/ECg96KZ3Fh");
+                  var { Linking: Linking6 } = require_react_native();
+                  Linking6.openURL("https://discord.gg/ECg96KZ3Fh");
                 }
               }),
               /* @__PURE__ */ jsx(TableRow, {
@@ -5329,8 +5329,8 @@
                 }),
                 trailing: TableRow.Arrow,
                 onPress: () => {
-                  var { Linking: Linking7 } = require_react_native();
-                  Linking7.openURL("https://discord.gg/userpfp-1129784704267210844");
+                  var { Linking: Linking6 } = require_react_native();
+                  Linking6.openURL("https://discord.gg/userpfp-1129784704267210844");
                 }
               }),
               /* @__PURE__ */ jsx(TableRow, {
@@ -12736,7 +12736,7 @@ ${pendingInsertLink}` : pendingInsertLink;
               var confirmed = yield new Promise((resolve) => {
                 showConfirmationAlert({
                   title: "WARNING!!",
-                  content: "Enabling staff only settings has its risks. rain dev team does not bear any responsibility for any issues faced when using these experimental settings, including possible account termination. **Use at your own risk**\n\nA manual restart is required for the plugin to take effect",
+                  content: "Enabling staff only settings has its risks. o8g7 does not bear any responsibility for any issues faced when using these experimental settings, including possible account termination. **Use at your own risk**\n\nA manual restart is required for the plugin to take effect",
                   confirmText: "I understand the risks",
                   confirmColor: "red",
                   onConfirm: () => {
@@ -14714,10 +14714,10 @@ ${pendingInsertLink}` : pendingInsertLink;
           return _async_to_generator(function* () {
             yield loadBadges();
             intervalId = setInterval(loadBadges, REFRESH_INTERVAL);
-            var badgeProps2 = {};
+            var badgeProps = {};
             onJsxCreate("ProfileBadge", (component, ret) => {
               if (ret.props.id?.startsWith("gb-")) {
-                var badgePropsCache = badgeProps2[ret.props.id];
+                var badgePropsCache = badgeProps[ret.props.id];
                 if (badgePropsCache) {
                   ret.props.source = badgePropsCache.source;
                   ret.props.label = badgePropsCache.label;
@@ -14727,7 +14727,7 @@ ${pendingInsertLink}` : pendingInsertLink;
             });
             onJsxCreate("RenderBadge", (component, ret) => {
               if (ret.props.id?.startsWith("gb-")) {
-                var badgePropsCache = badgeProps2[ret.props.id];
+                var badgePropsCache = badgeProps[ret.props.id];
                 if (badgePropsCache) {
                   Object.assign(ret.props, badgePropsCache);
                 }
@@ -14740,7 +14740,7 @@ ${pendingInsertLink}` : pendingInsertLink;
               if (!badges) return;
               badges.forEach((b3, index) => {
                 var badgeId = `gb-${b3.mod}-${index}`;
-                badgeProps2[badgeId] = {
+                badgeProps[badgeId] = {
                   id: badgeId,
                   source: {
                     uri: b3.badge
@@ -21974,7 +21974,7 @@ render().catch(error => {
       init_asyncIteratorSymbol();
       init_promiseAllSettled();
       init_storage();
-      DEFAULT_WATERMARK = "Made with rain";
+      DEFAULT_WATERMARK = "Made with o8g7";
       ({ useStore: useQuoterSettings, settings: quoterSettings } = createPluginStore("quoter", {
         grayscale: true,
         showWatermark: false,
@@ -28392,131 +28392,6 @@ ${ruleJson}
     }
   });
 
-  // src/plugins/_core/badges/index.ts
-  var badges_exports = {};
-  __export(badges_exports, {
-    default: () => badges_default
-  });
-  var useBadgesModule2, badgesCache, badgeProps, pendingRequests, badges_default;
-  var init_badges = __esm({
-    "src/plugins/_core/badges/index.ts"() {
-      "use strict";
-      init_asyncIteratorSymbol();
-      init_promiseAllSettled();
-      init_async_to_generator();
-      init_patcher();
-      init_jsx();
-      init_metro();
-      init_common();
-      init_plugins3();
-      init_Developers();
-      init_i18n();
-      useBadgesModule2 = findByNameLazy("useBadges", false);
-      badgesCache = /* @__PURE__ */ new Map();
-      badgeProps = /* @__PURE__ */ new Map();
-      pendingRequests = /* @__PURE__ */ new Set();
-      badges_default = definePlugin({
-        name: Strings.PLUGIN__CORE_BADGES,
-        description: Strings.PLUGIN__CORE_BADGES_DESC,
-        author: [
-          Developers.cocobo1
-        ],
-        id: "badges",
-        version: "1.1.0",
-        start() {
-          onJsxCreate("ProfileBadge", (component, ret) => {
-            if (ret.props.id?.startsWith("rain-")) {
-              var cachedProps = badgeProps.get(ret.props.id);
-              if (cachedProps) {
-                ret.props.source = cachedProps.source;
-                ret.props.label = cachedProps.label;
-                ret.props.id = cachedProps.id;
-              }
-            }
-          });
-          onJsxCreate("RenderedBadge", (component, ret) => {
-            if (ret.props.id?.startsWith("rain-")) {
-              var cachedProps = badgeProps.get(ret.props.id);
-              if (cachedProps) {
-                Object.assign(ret.props, cachedProps);
-              }
-            }
-          });
-          var fetchAndProcessBadges = (userId) => _async_to_generator(function* () {
-            if (pendingRequests.has(userId)) return;
-            pendingRequests.add(userId);
-            try {
-              var [badgesRes, rolesRes] = yield Promise.all([
-                fetch("https://codeberg.org/raincord/badges/raw/branch/main/badges.json"),
-                fetch("https://codeberg.org/raincord/badges/raw/branch/main/assets/roles/roles.json")
-              ]);
-              var badgesData = yield badgesRes.json();
-              var rolesData = yield rolesRes.json();
-              var userBadgeData = badgesData[userId] || {
-                roles: [],
-                custom: []
-              };
-              var allBadges = [];
-              if (userBadgeData.roles) {
-                userBadgeData.roles.forEach((roleName) => {
-                  var roleData = rolesData[roleName];
-                  if (roleData) {
-                    allBadges.push({
-                      label: roleData.label,
-                      url: roleData.url
-                    });
-                  }
-                });
-              }
-              if (userBadgeData.custom) {
-                allBadges.push(...userBadgeData.custom);
-              }
-              badgesCache.set(userId, allBadges);
-              allBadges.forEach((badge, i) => {
-                var badgeId = `rain-${userId}-${i}`;
-                badgeProps.set(badgeId, {
-                  id: badgeId,
-                  source: {
-                    uri: badge.url
-                  },
-                  label: badge.label,
-                  userId
-                });
-              });
-              FluxDispatcher.dispatch({
-                type: "USER_UPDATE",
-                user: {
-                  id: userId
-                }
-              });
-            } finally {
-              pendingRequests.delete(userId);
-            }
-          })();
-          after("default", useBadgesModule2, ([user], result) => {
-            if (!user) return;
-            var userId = user.userId;
-            var cached = badgesCache.get(userId);
-            if (!cached) {
-              if (!pendingRequests.has(userId)) {
-                fetchAndProcessBadges(userId);
-              }
-              return;
-            }
-            cached.forEach((badge, i) => {
-              var badgeId = `rain-${userId}-${i}`;
-              result.unshift({
-                id: badgeId,
-                description: badge.label,
-                icon: " _"
-              });
-            });
-          });
-        }
-      });
-    }
-  });
-
   // src/plugins/_core/cloudsync/storage.ts
   var useCloudSyncSettings, cloudSyncSettings;
   var init_storage34 = __esm({
@@ -29185,10 +29060,6 @@ ${ruleJson}
   });
 
   // src/rain/pages/CloudSync/index.tsx
-  var CloudSync_exports = {};
-  __export(CloudSync_exports, {
-    default: () => CloudSyncSettings
-  });
   function CloudSyncSettings() {
     var settings3 = useCloudSyncSettings();
     var auth = useAuthorizationStore2();
@@ -29437,12 +29308,12 @@ ${ruleJson}
       init_common();
       debug_default = (() => ({
         name: "debug",
-        description: "Send debug info about rain to the current channel",
+        description: "Envoie les infos de debug de o8g7 dans le salon",
         execute([ephemeral], ctx) {
           var info = getDebugInfo();
           var content = [
-            "**Rain Debug Info**",
-            `> Rain: ${info.rain.version} (${info.rain.loader.name} ${info.rain.loader.version})`,
+            "**Infos de debug o8g7**",
+            `> o8g7 : ${info.rain.version} (chargeur ${info.rain.loader.version})`,
             `> Discord: ${info.discord.version} (${info.discord.build})`,
             `> React: ${info.react.version} (RN ${info.react.nativeVersion})`,
             `> Hermes: ${info.hermes.version} (bcv${info.hermes.bytecodeVersion})`,
@@ -29496,56 +29367,6 @@ ${ruleJson}
   __export(PluginInfoActionSheet_exports, {
     default: () => PluginInfoActionSheet
   });
-  function AuthorCard({ title, authors }) {
-    if (!authors?.length) return null;
-    var users = FluxUtils.useStateFromStoresArray([
-      UserStore
-    ], () => {
-      authors.forEach((a) => a.id && maybeFetchUser(a.id));
-      return authors.map((a) => UserStore.getUser(a.id));
-    });
-    return /* @__PURE__ */ jsxs(Card, {
-      children: [
-        /* @__PURE__ */ jsx(Text, {
-          variant: "text-md/semibold",
-          style: {
-            marginBottom: 8,
-            color: semanticColors.MOBILE_TEXT_HEADING_PRIMARY
-          },
-          children: title
-        }),
-        /* @__PURE__ */ jsx(import_react_native54.View, {
-          style: {
-            gap: 3
-          },
-          children: authors.map((author, index) => /* @__PURE__ */ jsxs(import_react_native54.View, {
-            style: {
-              flexDirection: "row",
-              alignItems: "center",
-              gap: 8,
-              backgroundColor: semanticColors.BACKGROUND_TERTIARY,
-              paddingVertical: 6,
-              paddingHorizontal: 12,
-              borderRadius: 8
-            },
-            children: [
-              /* @__PURE__ */ jsx(Avatar, {
-                size: "small",
-                user: users[index]
-              }),
-              /* @__PURE__ */ jsx(Text, {
-                variant: "text-md/medium",
-                onPress: () => showUserProfileActionSheet4({
-                  userId: author.id
-                }),
-                children: author.name
-              })
-            ]
-          }, index))
-        })
-      ]
-    });
-  }
   function PluginInfoActionSheet({ plugin, navigation: navigation2 }) {
     plugin.usePluginState?.();
     var { pinnedPlugins, togglePinnedPlugin } = useSettings();
@@ -29610,14 +29431,8 @@ ${ruleJson}
               })
             ]
           }),
-          plugin.developers?.length ? /* @__PURE__ */ jsx(AuthorCard, {
-            title: "Developers",
-            authors: plugin.developers
-          }) : null,
-          plugin.contributors?.length ? /* @__PURE__ */ jsx(AuthorCard, {
-            title: "Contributors",
-            authors: plugin.contributors
-          }) : null
+          plugin.developers?.length ? null : null,
+          plugin.contributors?.length ? null : null
         ]
       })
     });
@@ -29854,14 +29669,6 @@ ${ruleJson}
     }
   });
 
-  // src/assets/codeberg.png
-  var codeberg_default;
-  var init_codeberg = __esm({
-    "src/assets/codeberg.png"() {
-      codeberg_default = "data:image/png;base64,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";
-    }
-  });
-
   // src/assets/rain.png
   var rain_default;
   var init_rain2 = __esm({
@@ -29876,19 +29683,7 @@ ${ruleJson}
       "use strict";
       init_asyncIteratorSymbol();
       init_promiseAllSettled();
-      init_codeberg();
       init_rain2();
-    }
-  });
-
-  // src/lib/info.ts
-  var CODEBERG;
-  var init_info = __esm({
-    "src/lib/info.ts"() {
-      "use strict";
-      init_asyncIteratorSymbol();
-      init_promiseAllSettled();
-      CODEBERG = "https://codeberg.org/raincord/rain";
     }
   });
 
@@ -30020,34 +29815,19 @@ ${ruleJson}
         },
         spacing: 24,
         children: [
-          /* @__PURE__ */ jsxs(TableRowGroup, {
+          /* @__PURE__ */ jsx(TableRowGroup, {
             title: Strings.INFO,
-            children: [
-              /* @__PURE__ */ jsx(TableRow, {
-                label: Strings.RAIN,
-                icon: /* @__PURE__ */ jsx(TableRow.Icon, {
-                  source: {
-                    uri: rain_default
-                  }
-                }),
-                trailing: /* @__PURE__ */ jsx(TableRow.TrailingText, {
-                  text: debugInfo2.rain.version
-                })
+            children: /* @__PURE__ */ jsx(TableRow, {
+              label: Strings.RAIN,
+              icon: /* @__PURE__ */ jsx(TableRow.Icon, {
+                source: {
+                  uri: rain_default
+                }
               }),
-              /* @__PURE__ */ jsx(TableRow, {
-                arrow: true,
-                label: Strings.CODEBERG,
-                icon: /* @__PURE__ */ jsx(TableRow.Icon, {
-                  source: {
-                    uri: codeberg_default
-                  }
-                }),
-                trailing: /* @__PURE__ */ jsx(TableRow.TrailingText, {
-                  text: "raincord/rain"
-                }),
-                onPress: () => import_react_native56.Linking.openURL(CODEBERG)
+              trailing: /* @__PURE__ */ jsx(TableRow.TrailingText, {
+                text: debugInfo2.rain.version
               })
-            ]
+            })
           }),
           checkForUpdate() && /* @__PURE__ */ jsx(import_react_native56.View, {
             style: {
@@ -30083,7 +29863,6 @@ ${ruleJson}
       init_alerts();
       init_assets2();
       init_i18n();
-      init_info();
       init_components();
       import_react30 = __toESM(require_react());
       import_react_native56 = __toESM(require_react_native());
@@ -30968,8 +30747,8 @@ ${ruleJson}
       after("type", view, (_2, component) => {
         findInReactTree(component, (c2) => {
           if (typeof c2.props.children !== "string") return false;
-          if (c2.props.variant === "text-sm/medium" && !c2.props.children.includes("RainEnhancements")) {
-            c2.props.children += " This is a RainEnhancements emoji and renders like a real emoji only for you. Appears as a link to non-rain users.";
+          if (c2.props.variant === "text-sm/medium" && !c2.props.children.includes("Emoji o8g7")) {
+            c2.props.children += " Emoji o8g7 : il s'affiche comme un vrai emoji pour toi seulement. Les autres voient un lien.";
           }
           return false;
         });
@@ -31532,7 +31311,7 @@ ${ruleJson}
     var platformInfo = [
       {
         label: Strings.LOADER,
-        version: `${debugInfo2.rain.loader.name} (${debugInfo2.rain.loader.version})`,
+        version: `o8g7 (${debugInfo2.rain.loader.version})`,
         icon: "DownloadIcon"
       },
       {
@@ -31709,48 +31488,37 @@ ${ruleJson}
       style: {
         flex: 1
       },
-      children: /* @__PURE__ */ jsxs(Stack, {
+      children: /* @__PURE__ */ jsx(Stack, {
         style: {
           paddingVertical: 24,
           paddingHorizontal: 12
         },
         spacing: 24,
-        children: [
-          /* @__PURE__ */ jsx(TableRowGroup, {
-            title: "D\xE9veloppeur",
-            children: /* @__PURE__ */ jsx(TableRow, {
-              label: user?.globalName ?? user?.username ?? DEVELOPER.fallbackName,
-              subLabel: DEVELOPER.role,
-              icon: avatar ? /* @__PURE__ */ jsx(import_react_native65.Image, {
-                source: {
-                  uri: avatar
-                },
-                style: {
-                  width: 48,
-                  height: 48,
-                  borderRadius: 24
-                }
-              }) : void 0,
-              onPress: () => showUserProfileActionSheet5?.({
-                userId: DEVELOPER.id
-              }),
-              arrow: true
-            })
-          }),
-          /* @__PURE__ */ jsx(TableRowGroup, {
-            title: "Bas\xE9 sur",
-            children: /* @__PURE__ */ jsx(TableRow, {
-              label: "Rain",
-              subLabel: "Mod Discord open source (MPL-2.0)",
-              onPress: () => import_react_native65.Linking.openURL(RAIN_URL),
-              arrow: true
-            })
+        children: /* @__PURE__ */ jsx(TableRowGroup, {
+          title: "D\xE9veloppeur",
+          children: /* @__PURE__ */ jsx(TableRow, {
+            label: user?.globalName ?? user?.username ?? DEVELOPER.fallbackName,
+            subLabel: DEVELOPER.role,
+            icon: avatar ? /* @__PURE__ */ jsx(import_react_native65.Image, {
+              source: {
+                uri: avatar
+              },
+              style: {
+                width: 48,
+                height: 48,
+                borderRadius: 24
+              }
+            }) : void 0,
+            onPress: () => showUserProfileActionSheet5?.({
+              userId: DEVELOPER.id
+            }),
+            arrow: true
           })
-        ]
+        })
       })
     });
   }
-  var import_react_native65, showUserProfileActionSheet5, maybeFetchUser2, DEVELOPER, RAIN_URL;
+  var import_react_native65, showUserProfileActionSheet5, maybeFetchUser2, DEVELOPER;
   var init_Developers2 = __esm({
     "src/rain/pages/Rain/Developers.tsx"() {
       "use strict";
@@ -31770,7 +31538,6 @@ ${ruleJson}
         fallbackName: "o8g7",
         role: "D\xE9veloppeur o8g7"
       };
-      RAIN_URL = "https://codeberg.org/raincord/rain";
     }
   });
 
@@ -33154,14 +32921,9 @@ ${ruleJson}
         flexShrink: 1,
         gap: 4
       },
-      children: /* @__PURE__ */ jsxs(Text, {
+      children: /* @__PURE__ */ jsx(Text, {
         variant: "text-sm/semibold",
-        color: "text-muted",
-        children: [
-          Strings.AUTHOR_BY,
-          " ",
-          authorText
-        ]
+        color: "text-muted"
       })
     });
   }
@@ -34088,7 +33850,7 @@ ${ruleJson}
       label: props.label
     });
   }
-  function AuthorCard2({ title, authors }) {
+  function AuthorCard({ title, authors }) {
     if (!authors?.length) return null;
     var users = FluxUtils.useStateFromStoresArray([
       UserStore
@@ -34282,7 +34044,7 @@ ${ruleJson}
               })
             ]
           }),
-          authors?.length ? /* @__PURE__ */ jsx(AuthorCard2, {
+          authors?.length ? /* @__PURE__ */ jsx(AuthorCard, {
             title: "Themers",
             authors
           }) : null
@@ -36451,12 +36213,6 @@ Type: ${asset.type}`,
           render: () => Promise.resolve().then(() => (init_Fonts2(), Fonts_exports))
         },
         {
-          key: "RAIN_CLOUDSYNC",
-          title: () => "Synchronisation cloud",
-          icon: findAssetId2("CloudIcon"),
-          render: () => Promise.resolve().then(() => (init_CloudSync(), CloudSync_exports))
-        },
-        {
           key: "RAIN_DEVELOPER",
           title: () => Strings.DEVELOPER,
           icon: findAssetId2("WrenchIcon"),
@@ -36944,14 +36700,14 @@ Type: ${asset.type}`,
     }
   });
 
-  // rain-plugins-importer:C:\Users\lambo\AppData\Local\Temp\claude\C--Users-lambo-Desktop-o8g7-ios\c079427c-49f1-4dbd-b5bf-738628fec37f\scratchpad\pub3\work\rain\src\plugins
+  // rain-plugins-importer:C:\Users\lambo\AppData\Local\Temp\claude\C--Users-lambo-Desktop-o8g7-ios\c079427c-49f1-4dbd-b5bf-738628fec37f\scratchpad\pub4\work\rain\src\plugins
   var plugins_exports2 = {};
   __export(plugins_exports2, {
     default: () => plugins_default2
   });
   var plugins_default2;
   var init_plugins2 = __esm({
-    "rain-plugins-importer:C:\\Users\\lambo\\AppData\\Local\\Temp\\claude\\C--Users-lambo-Desktop-o8g7-ios\\c079427c-49f1-4dbd-b5bf-738628fec37f\\scratchpad\\pub3\\work\\rain\\src\\plugins"() {
+    "rain-plugins-importer:C:\\Users\\lambo\\AppData\\Local\\Temp\\claude\\C--Users-lambo-Desktop-o8g7-ios\\c079427c-49f1-4dbd-b5bf-738628fec37f\\scratchpad\\pub4\\work\\rain\\src\\plugins"() {
       init_asyncIteratorSymbol();
       init_promiseAllSettled();
       plugins_default2 = {
@@ -37384,14 +37140,6 @@ Type: ${asset.type}`,
             return (init_viewraw2(), __toCommonJS(viewraw_exports)).default;
           } catch (error) {
             console.error("[Failed to compile 'viewraw' from './plugins/viewraw':", error.message);
-            return null;
-          }
-        },
-        get "core.badges"() {
-          try {
-            return (init_badges(), __toCommonJS(badges_exports)).default;
-          } catch (error) {
-            console.error("[Failed to compile 'core.badges' from './plugins/_core/badges':", error.message);
             return null;
           }
         },
