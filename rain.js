@@ -5197,11 +5197,11 @@
   }
   function createUserPFPPatcher(onEnabled) {
     return () => {
-      var patches34 = [];
+      var patches35 = [];
       fetchData2();
       var avatarStuff = findByProps("getUserAvatarURL", "getUserAvatarSource");
       dataInterval = setInterval(() => fetchData2(), 1e3 * 60 * 60);
-      patches34.push(instead("getUser", UserStore, (args, orig) => {
+      patches35.push(instead("getUser", UserStore, (args, orig) => {
         var ret = orig(...args);
         if (!onEnabled() || !data?.avatars?.[args[0]]) return ret;
         var ext = data.avatars[args[0]] && urlExt(data.avatars[args[0]]);
@@ -5211,11 +5211,11 @@
         }
         return ret;
       }));
-      patches34.push(instead("getUserAvatarURL", avatarStuff, (args, orig) => {
+      patches35.push(instead("getUserAvatarURL", avatarStuff, (args, orig) => {
         var custom = onEnabled() ? getCustomAvatar(args[0].id, !args[1]) : void 0;
         return custom ?? orig(...args);
       }));
-      patches34.push(instead("getUserAvatarSource", avatarStuff, (args, orig) => {
+      patches35.push(instead("getUserAvatarSource", avatarStuff, (args, orig) => {
         if (!onEnabled()) return orig(...args);
         var custom = getCustomAvatar(args[0].id, !args[1]);
         if (!custom) return orig(...args);
@@ -5224,7 +5224,7 @@
         };
       }));
       return () => {
-        for (var x2 of patches34) {
+        for (var x2 of patches35) {
           x2();
         }
         if (dataInterval) {
@@ -6110,20 +6110,20 @@
   // src/plugins/betteryoubar/patches/actual.tsx
   function patchActual(ThemedYouBarModule, options) {
     if (!ThemedYouBarModule?.ThemedYouBar) return [];
-    var patches34 = [];
+    var patches35 = [];
     var { transitionToGuild, openUserSettings, IconButton: IconButton2 } = options;
     var StarAsset = findAssetId2("StarIcon");
     var SettingsAsset = findAssetId2("SettingsIcon");
     var BellAsset = findAssetId2("BellIcon");
     var npPatched = false;
     var fakeNameplate = false;
-    patches34.push(after("type", ThemedYouBarModule.ThemedYouBar, (_2, res) => {
+    patches35.push(after("type", ThemedYouBarModule.ThemedYouBar, (_2, res) => {
       var kids = res?.props?.children;
       if (!kids) return res;
       var nameplate = kids[1]?.type;
       if (nameplate && !npPatched) {
         npPatched = true;
-        patches34.push(after("type", nameplate, (_args, npRes) => {
+        patches35.push(after("type", nameplate, (_args, npRes) => {
           var rowKids = npRes?.props?.children;
           if (!Array.isArray(rowKids)) return npRes;
           var btnParentIndex = rowKids.findIndex((k) => {
@@ -6212,7 +6212,7 @@
       }
       return res;
     }));
-    return patches34;
+    return patches35;
   }
   var init_actual = __esm({
     "src/plugins/betteryoubar/patches/actual.tsx"() {
@@ -6230,13 +6230,13 @@
 
   // src/plugins/betteryoubar/patches/future.tsx
   function patchFuture(YouBarBackground, YouBarNameplate, YouBarNotificationsButton, options) {
-    var patches34 = [];
+    var patches35 = [];
     var { transitionToGuild, openUserSettings, IconButton: IconButton2 } = options;
     var StarAsset = findAssetId2("StarIcon");
     var SettingsAsset = findAssetId2("SettingsIcon");
     var BellAsset = findAssetId2("BellIcon");
     if (YouBarNameplate) {
-      patches34.push(after("type", YouBarNameplate, (_args, res) => {
+      patches35.push(after("type", YouBarNameplate, (_args, res) => {
         var mode = betteryoubarSettings.backgroundMode;
         if (mode === "none" || mode === "custom_image") {
           return null;
@@ -6245,7 +6245,7 @@
       }));
     }
     if (YouBarBackground) {
-      patches34.push(before("type", YouBarBackground, (args) => {
+      patches35.push(before("type", YouBarBackground, (args) => {
         var mode = betteryoubarSettings.backgroundMode;
         if (mode === "none" || mode === "custom_image") {
           if (args[0]) {
@@ -6253,7 +6253,7 @@
           }
         }
       }));
-      patches34.push(after("type", YouBarBackground, (args, res) => {
+      patches35.push(after("type", YouBarBackground, (args, res) => {
         var mode = betteryoubarSettings.backgroundMode;
         var url2 = betteryoubarSettings.customImageUrl;
         if (mode === "custom_image" && url2 && url2.trim() !== "") {
@@ -6311,7 +6311,7 @@
       }));
     }
     if (YouBarNotificationsButton) {
-      patches34.push(after("type", YouBarNotificationsButton, (args) => {
+      patches35.push(after("type", YouBarNotificationsButton, (args) => {
         var mode = betteryoubarSettings.backgroundMode;
         var isCustom = mode === "custom_image";
         var isNone = mode === "none";
@@ -6337,7 +6337,7 @@
         });
       }));
     }
-    return patches34;
+    return patches35;
   }
   var Image3, View8;
   var init_future = __esm({
@@ -8578,22 +8578,22 @@ ${pendingInsertLink}` : pendingInsertLink;
     }
   }
   function setupPatches() {
-    var patches34 = [];
+    var patches35 = [];
     try {
       var Messages3 = findByProps("sendMessage", "editMessage", "startEditMessage");
       if (Messages3?.sendMessage) {
-        patches34.push(before("sendMessage", Messages3, (args) => {
+        patches35.push(before("sendMessage", Messages3, (args) => {
           handleMessage(args[1]);
         }));
       }
       if (Messages3?.editMessage) {
-        patches34.push(before("editMessage", Messages3, (args) => {
+        patches35.push(before("editMessage", Messages3, (args) => {
           handleMessage(args[2]);
         }));
       }
     } catch (e) {
     }
-    return patches34;
+    return patches35;
   }
   var HTTP_REGEX_MULTI;
   var init_patcher2 = __esm({
@@ -8941,25 +8941,25 @@ ${pendingInsertLink}` : pendingInsertLink;
     for (var [target, key] of targets) {
       if (typeof target?.[key] !== "function") throw new Error(`Declutter: required Discord surface ${key} is unavailable`);
     }
-    var patches34 = [];
+    var patches35 = [];
     try {
-      patches34.push(instead4("default", guildActions, (args, original) => {
+      patches35.push(instead4("default", guildActions, (args, original) => {
         var rows = original(...args);
         if (!settings3().hideServerBoostGoal) return rows;
         if (!Array.isArray(rows)) throw new Error("Declutter: unexpected guild action rows");
         return rows.includes(BOOST_GOAL_ROW) ? rows.filter((row) => row !== BOOST_GOAL_ROW) : rows;
       }));
-      patches34.push(instead4("type", activity.default, (args, original) => {
+      patches35.push(instead4("type", activity.default, (args, original) => {
         var tree = original(...args);
         return settings3().hideDmActivityCards ? null : tree;
       }));
-      patches34.push(instead4("getMessagesItemHappeningNowHeight", activity, (args, original) => {
+      patches35.push(instead4("getMessagesItemHappeningNowHeight", activity, (args, original) => {
         var height = original(...args);
         return settings3().hideDmActivityCards ? 0 : height;
       }));
-      return patches34;
+      return patches35;
     } catch (error) {
-      for (var undo of patches34.reverse()) undo();
+      for (var undo of patches35.reverse()) undo();
       throw error;
     }
   }
@@ -9079,10 +9079,10 @@ ${pendingInsertLink}` : pendingInsertLink;
     ]) {
       if (typeof target?.[key1] !== "function") throw new Error(`Declutter: required profile/payment surface ${key1} is unavailable`);
     }
-    var patches34 = [];
+    var patches35 = [];
     try {
       var _loop2 = function(target22, key32, flag2) {
-        patches34.push(instead4(key32, target22, (args, original) => {
+        patches35.push(instead4(key32, target22, (args, original) => {
           var isPreview = preview.useIsPreview();
           var result = original(...args);
           return !isPreview && settings3()[flag2] ? null : result;
@@ -9095,8 +9095,8 @@ ${pendingInsertLink}` : pendingInsertLink;
         if (typeof primaryInfo?.default !== "function" || typeof youBar?.useIsYouBarGuildTagEnabled !== "function") {
           throw new Error("Declutter: required guild tag surfaces are unavailable");
         }
-        patches34.push(instead4("default", primaryInfo, (args, original) => removeElements(original(...args), (element) => typeof element.type === "function" && element.type.name === "GuildTag")));
-        patches34.push(instead4("useIsYouBarGuildTagEnabled", youBar, (args, original) => {
+        patches35.push(instead4("default", primaryInfo, (args, original) => removeElements(original(...args), (element) => typeof element.type === "function" && element.type.name === "GuildTag")));
+        patches35.push(instead4("useIsYouBarGuildTagEnabled", youBar, (args, original) => {
           original(...args);
           return false;
         }));
@@ -9107,16 +9107,16 @@ ${pendingInsertLink}` : pendingInsertLink;
         if (typeof dock?.type !== "function" || typeof hooks?.useIsMobileQuestDockRendered !== "function" || typeof hooks?.useMobileQuestDockHeight !== "function" || typeof hooks?.useIsMobileQuestDockRenderedBase !== "function") {
           throw new Error("Declutter: quest dock surfaces are unavailable");
         }
-        patches34.push(instead4("type", dock, () => null));
-        patches34.push(instead4("useIsMobileQuestDockRendered", hooks, (args, original) => {
+        patches35.push(instead4("type", dock, () => null));
+        patches35.push(instead4("useIsMobileQuestDockRendered", hooks, (args, original) => {
           original(...args);
           return false;
         }));
-        patches34.push(instead4("useIsMobileQuestDockRenderedBase", hooks, (args, original) => {
+        patches35.push(instead4("useIsMobileQuestDockRenderedBase", hooks, (args, original) => {
           original(...args);
           return false;
         }));
-        patches34.push(instead4("useMobileQuestDockHeight", hooks, (args, original) => {
+        patches35.push(instead4("useMobileQuestDockHeight", hooks, (args, original) => {
           original(...args);
           return 0;
         }));
@@ -9126,13 +9126,13 @@ ${pendingInsertLink}` : pendingInsertLink;
       if (hiddenUserEntries.size) {
         var userArea = find3.byProps("useHasSettingsBadge")?.default;
         if (typeof userArea?.type !== "function") throw new Error("Declutter: user area surface is unavailable");
-        patches34.push(instead4("type", userArea, (args, original) => removeElements(original(...args), (element) => element.key !== null && hiddenUserEntries.has(String(element.key)))));
+        patches35.push(instead4("type", userArea, (args, original) => removeElements(original(...args), (element) => element.key !== null && hiddenUserEntries.has(String(element.key)))));
       }
       for (var [target1, key2] of previewTargets) {
-        patches34.push(instead4(key2, target1, (args, original) => preview.wrap(original, args[0])));
+        patches35.push(instead4(key2, target1, (args, original) => preview.wrap(original, args[0])));
       }
       for (var [target2, key3, flag] of targets) _loop2(target2, key3, flag);
-      patches34.push(instead4("default", messages, (args, original) => {
+      patches35.push(instead4("default", messages, (args, original) => {
         var result = original(...args);
         if (!result) return result;
         var state3 = settings3();
@@ -9164,11 +9164,11 @@ ${pendingInsertLink}` : pendingInsertLink;
         "toSettingListItems",
         "getScoredSettingListSearchResultItems"
       ]) {
-        patches34.push(instead4(key4, lists, (args, original) => filterPaymentRows(original(...args), settings3())));
+        patches35.push(instead4(key4, lists, (args, original) => filterPaymentRows(original(...args), settings3())));
       }
-      return patches34;
+      return patches35;
     } catch (error) {
-      for (var undo of patches34.reverse()) undo();
+      for (var undo of patches35.reverse()) undo();
       throw error;
     }
   }
@@ -11716,7 +11716,7 @@ ${pendingInsertLink}` : pendingInsertLink;
   }
   function patchChatBackground() {
     try {
-      var patches34 = [
+      var patches35 = [
         after("render", Messages, (_2, ret) => {
           if (!_colorRef.current || !_colorRef.current.background?.url) return;
           var messagesComponent = findInReactTree(ret, (x2) => x2 && "HACK_fixModalInteraction" in x2.props && x2?.props?.style);
@@ -11735,7 +11735,7 @@ ${pendingInsertLink}` : pendingInsertLink;
           });
         })
       ];
-      return () => patches34.forEach((x2) => x2());
+      return () => patches35.forEach((x2) => x2());
     } catch (e) {
       logger.error("Failed to patch chat background.", e);
       return () => {
@@ -11878,7 +11878,7 @@ ${pendingInsertLink}` : pendingInsertLink;
       "ThemeStore",
       "SelectivelySyncedUserSettingsStore"
     ]);
-    var patches34 = [
+    var patches35 = [
       after("get", mmkvStorage, ([key], ret) => {
         if (!_colorRef.current || !patchedKeys.has(key)) return;
         var state2 = findInTree(ret._state, (s) => typeof s.theme === "string");
@@ -11895,7 +11895,7 @@ ${pendingInsertLink}` : pendingInsertLink;
         ];
       })
     ];
-    return () => patches34.forEach((p) => p());
+    return () => patches35.forEach((p) => p());
   }
   var mmkvStorage;
   var init_storage14 = __esm({
@@ -11923,12 +11923,12 @@ ${pendingInsertLink}` : pendingInsertLink;
     }, {
       noCustomIcons: false
     });
-    var patches34 = [
+    var patches35 = [
       patchStorage(),
       patchDefinitionAndResolver(),
       patchChatBackground()
     ];
-    return () => patches34.forEach((p) => p());
+    return () => patches35.forEach((p) => p());
   }
   var init_colors = __esm({
     "src/plugins/_core/painter/themes/colors.ts"() {
@@ -12632,11 +12632,11 @@ ${pendingInsertLink}` : pendingInsertLink;
         return ret;
       }
     };
-    var patches34 = [
+    var patches35 = [
       after("jsx", jsxRuntime2, callback),
       after("jsxs", jsxRuntime2, callback)
     ];
-    return () => patches34.forEach((unpatch6) => unpatch6());
+    return () => patches35.forEach((unpatch6) => unpatch6());
   }
   var callbacks, jsxRuntime2;
   var init_jsx = __esm({
@@ -13209,7 +13209,7 @@ ${pendingInsertLink}` : pendingInsertLink;
     var LazyActionSheet8 = findByProps("openLazy", "hideActionSheet");
     if (!LazyActionSheet8) return () => {
     };
-    var patches34 = [];
+    var patches35 = [];
     var unpatchLazy = before("openLazy", LazyActionSheet8, ([lazySheet, name]) => {
       if (![
         "MessageEmojiActionSheet",
@@ -13217,14 +13217,14 @@ ${pendingInsertLink}` : pendingInsertLink;
       ].includes(name)) return;
       unpatchLazy();
       lazySheet.then((module) => {
-        patches34.push(after("default", module, (_2, res) => {
-          patches34.push(patchSheet("type", res, true));
+        patches35.push(after("default", module, (_2, res) => {
+          patches35.push(patchSheet("type", res, true));
         }));
       });
     });
     return () => {
       unpatchLazy();
-      patches34.forEach((p) => p?.());
+      patches35.forEach((p) => p?.());
     };
   }
   var init_patchMessageEmojiActionSheet = __esm({
@@ -13656,7 +13656,7 @@ ${pendingInsertLink}` : pendingInsertLink;
         var LazyActionSheet8 = findByProps("openLazy", "hideActionSheet");
         if (!LazyActionSheet8) return () => {
         };
-        var patches34 = [];
+        var patches35 = [];
         var unpatchLazy = before("openLazy", LazyActionSheet8, ([lazySheet, name]) => {
           if (![
             "MessageEmojiActionSheet",
@@ -13664,14 +13664,14 @@ ${pendingInsertLink}` : pendingInsertLink;
           ].includes(name)) return;
           unpatchLazy();
           lazySheet.then((module) => {
-            patches34.push(after("default", module, (_2, res) => {
-              patches34.push(patchSheet2("type", res, true));
+            patches35.push(after("default", module, (_2, res) => {
+              patches35.push(patchSheet2("type", res, true));
             }));
           });
         });
         return () => {
           unpatchLazy();
-          patches34.forEach((p) => p?.());
+          patches35.forEach((p) => p?.());
         };
       })()
     ];
@@ -13781,7 +13781,7 @@ ${pendingInsertLink}` : pendingInsertLink;
 
   // src/plugins/fakenitro/patches/sendMessage.ts
   function getPatches5() {
-    var patches34 = [
+    var patches35 = [
       before("sendMessage", messageModule, (args) => {
         if (getCurrentUser2?.().premiumType === null) modifyIfNeeded(args[1]);
       }),
@@ -13802,11 +13802,11 @@ ${pendingInsertLink}` : pendingInsertLink;
       })
     ];
     if (uploadModule?.uploadLocalFiles !== void 0) {
-      patches34.push(before("uploadLocalFiles", uploadModule, (args) => {
+      patches35.push(before("uploadLocalFiles", uploadModule, (args) => {
         if (getCurrentUser2?.().premiumType === null) modifyIfNeeded(args[0].parsedMessage);
       }));
     }
-    return patches34;
+    return patches35;
   }
   var messageModule, uploadModule, getCurrentUser2, getStickerById;
   var init_sendMessage = __esm({
@@ -15384,20 +15384,20 @@ ${pendingInsertLink}` : pendingInsertLink;
     });
   }
   function patchActionSheets() {
-    var patches34 = [];
-    patches34.push(after("default", ForumPostLongPressActionSheet, ([{ thread }], ret) => {
+    var patches35 = [];
+    patches35.push(after("default", ForumPostLongPressActionSheet, ([{ thread }], ret) => {
       if (!jumpToTopSettings.actionSheets || ret[SYM_PATCHED]) return;
       var actions = findActionGroups(ret);
       if (!actions) return;
       actions.unshift(buildJumpToTopRow(() => jumpToTopOfForum(thread.guild_id, thread.id)));
       ret[SYM_PATCHED] = true;
     }));
-    patches34.push(after("default", ChannelLongPressActionSheet, (_2, ret) => {
+    patches35.push(after("default", ChannelLongPressActionSheet, (_2, ret) => {
       if (!jumpToTopSettings.actionSheets || ret?.[SYM_PATCHED]) return;
       var channel = ret?.props?.channel;
       if (!channel) return;
       if (!allowedChannelTypes.includes(channel.type)) return;
-      patches34.push(after("type", ret, (_3, component) => {
+      patches35.push(after("type", ret, (_3, component) => {
         var actions = findActionGroups(component);
         if (!actions) return;
         actions.unshift(buildJumpToTopRow(() => jumpToTopOfDifferentChannel(channel.guild_id ?? "@me", channel.id)));
@@ -15405,7 +15405,7 @@ ${pendingInsertLink}` : pendingInsertLink;
       ret[SYM_PATCHED] = true;
     }));
     return () => {
-      for (var unpatch6 of patches34) unpatch6();
+      for (var unpatch6 of patches35) unpatch6();
     };
   }
   var ForumPostLongPressActionSheet, ChannelLongPressActionSheet, SYM_PATCHED, allowedChannelTypes;
@@ -24644,7 +24644,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
     var { useSafeAreaInsets: useSafeAreaInsets3 } = findByProps("useSafeAreaInsets");
     var { useNavigatorBackPressHandler } = findByProps("useNavigatorBackPressHandler");
     var { Gesture, GestureDetector } = findByProps("Gesture", "GestureDetector");
-    var { Image: Image19, Pressable: Pressable9, ScrollView: ScrollView49, Text: Text9, View: View54, TextInput: TextInput6 } = Native;
+    var { Image: Image19, Pressable: Pressable9, ScrollView: ScrollView50, Text: Text9, View: View54, TextInput: TextInput6 } = Native;
     function DragTarget(properties) {
       var callbacks2 = (0, import_react26.useRef)(properties);
       callbacks2.current = properties;
@@ -25227,7 +25227,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
             }
           ],
           children: [
-            /* @__PURE__ */ jsx(ScrollView49, {
+            /* @__PURE__ */ jsx(ScrollView50, {
               horizontal: true,
               pagingEnabled: true,
               ref: folderPager,
@@ -26569,9 +26569,9 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
         }
       };
       details_default = (() => {
-        var patches34 = [];
-        findByTypeNameAll("UserRow").forEach((UserRow) => patches34.push(after("type", UserRow, (args, res) => rowPatch(args, res))));
-        return () => patches34.forEach((unpatch6) => unpatch6());
+        var patches35 = [];
+        findByTypeNameAll("UserRow").forEach((UserRow) => patches35.push(after("type", UserRow, (args, res) => rowPatch(args, res))));
+        return () => patches35.forEach((unpatch6) => unpatch6());
       });
     }
   });
@@ -26594,14 +26594,14 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
       TagModule2 = findByProps("getBotLabel");
       getBotLabel2 = TagModule2?.getBotLabel;
       name_default = (() => {
-        var patches34 = [];
+        var patches35 = [];
         if (HeaderName) {
-          patches34.push(after("default", HeaderName, ([{ channelId }], ret) => {
+          patches35.push(after("default", HeaderName, ([{ channelId }], ret) => {
             ret.props.channelId = channelId;
           }));
         }
         if (DisplayName) {
-          patches34.push(after("default", DisplayName, ([{ guildId, channelId, user }], ret) => {
+          patches35.push(after("default", DisplayName, ([{ guildId, channelId, user }], ret) => {
             var tagComponent = findInReactTree(ret, (c2) => c2?.type?.Types);
             var labelText = getBotLabel2?.(tagComponent?.props?.type);
             if (!tagComponent || labelText && !getBuiltInTags().includes(labelText)) {
@@ -26633,7 +26633,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
             }
           }));
         }
-        return () => patches34.forEach((unpatch6) => unpatch6());
+        return () => patches35.forEach((unpatch6) => unpatch6());
       });
     }
   });
@@ -30655,6 +30655,7 @@ ${ruleJson}
       BUNDLE_URL = "https://raw.githubusercontent.com/o8g7/o8g7-mod/main/rain.js";
       ENABLE_PLUGINS = [
         "o8g7.nitroradar",
+        "o8g7.chatplatforms",
         "messagelogger",
         "platformindicators",
         "picturelinks"
@@ -30678,7 +30679,7 @@ ${ruleJson}
           "profileUsername": true
         }
       };
-      SETUP_VERSION = 3;
+      SETUP_VERSION = 4;
     }
   });
 
@@ -30995,7 +30996,7 @@ ${ruleJson}
     var LazyActionSheet8 = findByProps("openLazy", "hideActionSheet");
     if (!LazyActionSheet8) return () => {
     };
-    var patches34 = [];
+    var patches35 = [];
     var unpatchLazy = before("openLazy", LazyActionSheet8, ([lazySheet, name]) => {
       if (![
         "MessageEmojiActionSheet",
@@ -31003,14 +31004,14 @@ ${ruleJson}
       ].includes(name)) return;
       unpatchLazy();
       lazySheet.then((module) => {
-        patches34.push(after("default", module, (_2, res) => {
-          patches34.push(patchSheet3("type", res, true));
+        patches35.push(after("default", module, (_2, res) => {
+          patches35.push(patchSheet3("type", res, true));
         }));
       });
     });
     return () => {
       unpatchLazy();
-      patches34.forEach((p) => p?.());
+      patches35.forEach((p) => p?.());
     };
   }
   var init_patchEmojiActionSheet = __esm({
@@ -36737,9 +36738,156 @@ Type: ${asset.type}`,
     }
   });
 
+  // src/plugins/_o8g7/chatplatforms/storage.ts
+  var useChatPlatformsSettings;
+  var init_storage36 = __esm({
+    "src/plugins/_o8g7/chatplatforms/storage.ts"() {
+      "use strict";
+      init_asyncIteratorSymbol();
+      init_promiseAllSettled();
+      init_storage();
+      ({ useStore: useChatPlatformsSettings } = createPluginStore("chatplatforms", {
+        showBots: false,
+        showSelf: true
+      }));
+    }
+  });
+
+  // src/plugins/_o8g7/chatplatforms/settings.tsx
+  var import_react_native79, settings_default8;
+  var init_settings29 = __esm({
+    "src/plugins/_o8g7/chatplatforms/settings.tsx"() {
+      "use strict";
+      init_asyncIteratorSymbol();
+      init_promiseAllSettled();
+      init_jsxRuntime();
+      init_components();
+      import_react_native79 = __toESM(require_react_native());
+      init_storage36();
+      settings_default8 = (() => {
+        var settings3 = useChatPlatformsSettings();
+        var { updateSettings } = settings3;
+        return /* @__PURE__ */ jsx(import_react_native79.ScrollView, {
+          style: {
+            flex: 1
+          },
+          children: /* @__PURE__ */ jsx(Stack, {
+            style: {
+              paddingVertical: 12,
+              paddingHorizontal: 12
+            },
+            spacing: 24,
+            children: /* @__PURE__ */ jsxs(TableRowGroup, {
+              title: "Afficher dans le chat",
+              children: [
+                /* @__PURE__ */ jsx(TableSwitchRow, {
+                  label: "Mes propres messages",
+                  value: settings3.showSelf,
+                  onValueChange: (v2) => updateSettings({
+                    showSelf: v2
+                  })
+                }),
+                /* @__PURE__ */ jsx(TableSwitchRow, {
+                  label: "Les bots",
+                  value: settings3.showBots,
+                  onValueChange: (v2) => updateSettings({
+                    showBots: v2
+                  })
+                })
+              ]
+            })
+          })
+        });
+      });
+    }
+  });
+
+  // src/plugins/_o8g7/chatplatforms/index.ts
+  var chatplatforms_exports = {};
+  __export(chatplatforms_exports, {
+    default: () => chatplatforms_default
+  });
+  function getPlatforms(userId) {
+    var statuses;
+    if (userId === UserStore.getCurrentUser()?.id) {
+      var sessions = SessionsStore.getSessions?.() ?? {};
+      statuses = {};
+      for (var session of Object.values(sessions)) {
+        var client = session?.clientInfo?.client;
+        if (client && client !== "unknown") statuses[client] = session.status;
+      }
+    } else {
+      statuses = PresenceStore.getState?.()?.clientStatuses?.[userId];
+    }
+    if (!statuses) return [];
+    return ORDER.filter((p) => statuses[p] && statuses[p] !== "offline" && statuses[p] !== "invisible");
+  }
+  var PLATFORM_ICONS, ORDER, MARK, patches34, chatplatforms_default;
+  var init_chatplatforms = __esm({
+    "src/plugins/_o8g7/chatplatforms/index.ts"() {
+      "use strict";
+      init_asyncIteratorSymbol();
+      init_promiseAllSettled();
+      init_patcher();
+      init_metro();
+      init_stores();
+      init_plugins3();
+      init_settings29();
+      init_storage36();
+      PLATFORM_ICONS = {
+        desktop: "\u{1F5A5}\uFE0F",
+        mobile: "\u{1F4F1}",
+        web: "\u{1F310}",
+        embedded: "\u{1F3AE}"
+      };
+      ORDER = [
+        "desktop",
+        "mobile",
+        "web",
+        "embedded"
+      ];
+      MARK = "\u2063";
+      patches34 = [];
+      chatplatforms_default = definePlugin({
+        name: "ChatPlatforms",
+        description: "Affiche les plateformes (ordinateur, mobile, web, console) apr\xE8s le pseudo dans le chat.",
+        author: [
+          {
+            name: "o8g7",
+            id: 0n
+          }
+        ],
+        id: "chatplatforms",
+        version: "1.0.0",
+        start() {
+          var RowManager6 = findByName("RowManager");
+          if (!RowManager6?.prototype?.generate) return;
+          patches34.push(after("generate", RowManager6.prototype, ([row], result) => {
+            try {
+              var message = result?.message;
+              if (row?.rowType !== 1 || !message?.username || !message.authorId) return;
+              if (typeof message.username !== "string" || message.username.includes(MARK)) return;
+              var opts = useChatPlatformsSettings.getState();
+              if (!opts.showBots && row.message?.author?.bot) return;
+              if (!opts.showSelf && message.authorId === UserStore.getCurrentUser()?.id) return;
+              var icons = getPlatforms(message.authorId).map((p) => PLATFORM_ICONS[p]);
+              if (icons.length) message.username = `${message.username} ${MARK}${icons.join("")}`;
+            } catch (unused) {
+            }
+          }));
+        },
+        stop() {
+          for (var unpatch6 of patches34) unpatch6();
+          patches34.length = 0;
+        },
+        settings: settings_default8
+      });
+    }
+  });
+
   // src/plugins/_o8g7/nitroradar/storage.ts
   var useNitroRadarSettings;
-  var init_storage36 = __esm({
+  var init_storage37 = __esm({
     "src/plugins/_o8g7/nitroradar/storage.ts"() {
       "use strict";
       init_asyncIteratorSymbol();
@@ -36756,8 +36904,8 @@ Type: ${asset.type}`,
   });
 
   // src/plugins/_o8g7/nitroradar/settings.tsx
-  var import_react_native79, Card8, settings_default8;
-  var init_settings29 = __esm({
+  var import_react_native80, Card8, settings_default9;
+  var init_settings30 = __esm({
     "src/plugins/_o8g7/nitroradar/settings.tsx"() {
       "use strict";
       init_asyncIteratorSymbol();
@@ -36766,13 +36914,13 @@ Type: ${asset.type}`,
       init_SettingsTextInput();
       init_metro();
       init_components();
-      import_react_native79 = __toESM(require_react_native());
-      init_storage36();
+      import_react_native80 = __toESM(require_react_native());
+      init_storage37();
       ({ Card: Card8 } = findByProps("Card"));
-      settings_default8 = (() => {
+      settings_default9 = (() => {
         var settings3 = useNitroRadarSettings();
         var { updateSettings } = settings3;
-        return /* @__PURE__ */ jsx(import_react_native79.ScrollView, {
+        return /* @__PURE__ */ jsx(import_react_native80.ScrollView, {
           style: {
             flex: 1
           },
@@ -36915,8 +37063,8 @@ Type: ${asset.type}`,
       init_common();
       init_stores();
       init_plugins3();
-      init_settings29();
-      init_storage36();
+      init_settings30();
+      init_storage37();
       NITRO_REGEX = /(?:discord\.gift|discord(?:app)?\.com\/gifts)\/([a-zA-Z0-9-_]{16,24})/gi;
       seen = /* @__PURE__ */ new Set();
       SEEN_MAX = 500;
@@ -36938,7 +37086,7 @@ Type: ${asset.type}`,
           FluxDispatcher.unsubscribe("MESSAGE_CREATE", onMessage2);
           seen.clear();
         },
-        settings: settings_default8
+        settings: settings_default9
       });
     }
   });
@@ -37447,6 +37595,14 @@ Type: ${asset.type}`,
             return (init_settings28(), __toCommonJS(settings_exports)).default;
           } catch (error) {
             console.error("[Failed to compile 'core.settings' from './plugins/_core/settings':", error.message);
+            return null;
+          }
+        },
+        get "o8g7.chatplatforms"() {
+          try {
+            return (init_chatplatforms(), __toCommonJS(chatplatforms_exports)).default;
+          } catch (error) {
+            console.error("[Failed to compile 'o8g7.chatplatforms' from './plugins/_o8g7/chatplatforms':", error.message);
             return null;
           }
         },
