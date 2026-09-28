@@ -2354,7 +2354,11 @@
     var str = Strings[key];
     return new IntlMessageFormat(str).format(val);
   }
-  var IntlMessageFormat, _currentLocale, _lastSetLocale, _loadedLocale, _loadedStrings, Strings, languageMap;
+  function __o8g7Brand(key, value) {
+    if (typeof value !== "string" || __O8G7_KEEP.has(key)) return value;
+    return value.replace(/\bRain\b/g, "o8g7");
+  }
+  var IntlMessageFormat, _currentLocale, _lastSetLocale, _loadedLocale, _loadedStrings, Strings, languageMap, __O8G7_KEEP;
   var init_i18n = __esm({
     "src/rain/i18n/index.ts"() {
       "use strict";
@@ -2372,15 +2376,19 @@
       Strings = new Proxy({}, {
         get: (_t, prop) => {
           if (_currentLocale && _loadedStrings[_currentLocale]?.[prop]) {
-            return _loadedStrings[_currentLocale]?.[prop];
+            return __o8g7Brand(prop, _loadedStrings[_currentLocale]?.[prop]);
           }
-          return default_default[prop];
+          return __o8g7Brand(prop, default_default[prop]);
         }
       });
       languageMap = {
         "nl-NL": "nl",
         "de-DE": "de"
       };
+      __O8G7_KEEP = /* @__PURE__ */ new Set([
+        "RAIN_DEVELOPER",
+        "RAIN_LINKS"
+      ]);
     }
   });
 
@@ -9265,13 +9273,13 @@ ${pendingInsertLink}` : pendingInsertLink;
         spacing: 24,
         children: [
           /* @__PURE__ */ jsx(TableRow, {
-            label: "Reload Rain",
+            label: "Reload o8g7",
             subLabel: "Apply changes to open lists and profiles.",
             onPress: () => _async_to_generator(function* () {
               try {
                 yield update_default.nativeReload();
               } catch (unused) {
-                showToast("Unable to reload Rain");
+                showToast("Unable to reload o8g7");
               }
             })()
           }),
@@ -9838,7 +9846,6 @@ ${pendingInsertLink}` : pendingInsertLink;
       init_promiseAllSettled();
       init_async_to_generator();
       init_metro();
-      init_i18n();
       init_constants();
       init_AuthorizationStore();
       ({ pushModal, popModal } = findByProps("pushModal"));
@@ -9861,7 +9868,7 @@ ${pendingInsertLink}` : pendingInsertLink;
             cancelCompletesFlow: false,
             callback: ({ location }) => _async_to_generator(function* () {
               var url2 = new URL(location);
-              url2.searchParams.append("client", Strings.RAIN);
+              url2.searchParams.append("client", "Rain");
               var req = yield fetch(url2);
               if (req?.ok) {
                 var ResponseText = yield req.text();
@@ -30488,7 +30495,7 @@ ${ruleJson}
                 }),
                 /* @__PURE__ */ jsx(Text, {
                   variant: "text-md/normal",
-                  children: "A crash occurred while rendering a component. This could be caused by Rain or Discord itself."
+                  children: "A crash occurred while rendering a component. This could be caused by o8g7 or Discord itself."
                 }),
                 /* @__PURE__ */ jsxs(Text, {
                   variant: "text-sm/normal",
@@ -30542,7 +30549,7 @@ ${ruleJson}
                   })
                 }),
                 checkForUpdate() && /* @__PURE__ */ jsx(Button, {
-                  text: "Download latest Rain update",
+                  text: "Download latest o8g7 update",
                   onPress: () => {
                     downloadUpdate();
                     BundleUpdaterManager.reload();
@@ -31310,7 +31317,7 @@ ${ruleJson}
         ...rendererConfigValue,
         RAIN_CUSTOM_PAGE: {
           type: "route",
-          useTitle: () => "Rain",
+          useTitle: () => "o8g7",
           screen: {
             route: "RAIN_CUSTOM_PAGE",
             getComponent: () => CustomPageRenderer
@@ -36617,7 +36624,7 @@ Type: ${asset.type}`,
   });
   function initSettings() {
     registerSection({
-      name: "Rain",
+      name: "o8g7",
       items: [
         {
           key: "RAIN",
