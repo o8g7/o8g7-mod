@@ -30671,7 +30671,7 @@ ${ruleJson}
           "profileUsername": true
         }
       };
-      SETUP_VERSION = 2;
+      SETUP_VERSION = 3;
     }
   });
 
@@ -30696,40 +30696,52 @@ ${ruleJson}
       current.updateSettings(patch);
     }
   }
-  function persistReady(store) {
+  function persistReady(store, timeoutMs = 3e3) {
     if (!store.persist || store.persist.hasHydrated()) return Promise.resolve();
     return new Promise((resolve) => {
       var unsubscribe2 = store.persist.onFinishHydration(() => {
         unsubscribe2();
         resolve();
       });
+      setTimeout(() => {
+        unsubscribe2();
+        resolve();
+      }, timeoutMs);
     });
+  }
+  function ensureLoaderConfig() {
+    var loader = useLoaderConfig.getState();
+    if (BUNDLE_URL && (!loader.customLoadUrl?.enabled || loader.customLoadUrl.url !== BUNDLE_URL)) {
+      loader.updateLoaderConfig({
+        customLoadUrl: {
+          enabled: true,
+          url: BUNDLE_URL
+        }
+      });
+    }
+    if (!useSettings.getState().disableUpdateWarnings) {
+      useSettings.getState().updateSettings({
+        disableUpdateWarnings: true
+      });
+    }
   }
   function applySetup() {
     return _async_to_generator(function* () {
-      var _loop2 = function(id2) {
-        if (plugins.getPluginSetting(id2) !== void 0) return "continue";
-        plugins.updatePluginSetting(id2, true);
-        startPlugin(id2).catch((error) => logger.log(`[o8g7] ${id2} n'a pas d\xE9marr\xE9 :`, error));
-      };
       yield Promise.all([
         waitForHydration(useSetupState),
         waitForHydration(usePluginSettings),
         persistReady(useLoaderConfig),
+        persistReady(useSettings),
         ...Object.values(PLUGIN_STORES).map((store) => waitForHydration(store))
       ]);
+      ensureLoaderConfig();
       var state2 = useSetupState.getState();
       if (state2.appliedVersion >= SETUP_VERSION) return;
       applyPluginSettings();
       var plugins = usePluginSettings.getState();
-      for (var id of ENABLE_PLUGINS) _loop2(id);
-      if (BUNDLE_URL) {
-        useLoaderConfig.getState().updateLoaderConfig({
-          customLoadUrl: {
-            enabled: true,
-            url: BUNDLE_URL
-          }
-        });
+      for (var id of ENABLE_PLUGINS) {
+        if (plugins.getPluginSetting(id) !== void 0) continue;
+        plugins.updatePluginSetting(id, true);
       }
       state2.updateSettings({
         appliedVersion: SETUP_VERSION
@@ -30769,8 +30781,15 @@ ${ruleJson}
         ],
         id: "o8g7setup",
         version: "1.0.0",
-        start() {
-          applySetup().catch((error) => logger.log("[o8g7] \xE9chec de la configuration :", error));
+        // eagerStart est attendu par Rain avant versionCheck() : la config est en place à temps.
+        eagerStart() {
+          return _async_to_generator(function* () {
+            try {
+              yield applySetup();
+            } catch (error) {
+              logger.log("[o8g7] \xE9chec de la configuration :", error);
+            }
+          })();
         }
       });
     }

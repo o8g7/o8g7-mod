@@ -1,8 +1,8 @@
-/* o8g7 : au premier lancement, active les plugins choisis et pointe Rain vers le bundle du serveur. */
-import { useLoaderConfig } from "@api/settings";
+/* o8g7 : active les plugins choisis et pointe Rain vers le bundle o8g7, avant la vérification de version de Rain. */
+import { useLoaderConfig, useSettings } from "@api/settings";
 import { createPluginStore, waitForHydration } from "@api/storage";
 import { logger } from "@lib/utils/logger";
-import { definePlugin, startPlugin, usePluginSettings } from "@plugins";
+import { definePlugin, usePluginSettings } from "@plugins";
 import { useMessageLoggerSettings } from "@plugins/messagelogger/storage";
 import { usePlatformIndicatorSettings } from "@plugins/platformindicators/storage";
 
@@ -31,15 +31,32 @@ function applyPluginSettings() {
     }
 }
 
-// useLoaderConfig n'expose pas _hasHydrated : on passe par l'API persist de zustand.
-function persistReady(store: any): Promise<void> {
+// useLoaderConfig / useSettings n'exposent pas _hasHydrated : on passe par l'API persist de zustand.
+// Délai maximal : ce plugin tourne au démarrage, il ne doit jamais bloquer l'app.
+function persistReady(store: any, timeoutMs = 3000): Promise<void> {
     if (!store.persist || store.persist.hasHydrated()) return Promise.resolve();
     return new Promise(resolve => {
         const unsubscribe = store.persist.onFinishHydration(() => {
             unsubscribe();
             resolve();
         });
+        setTimeout(() => {
+            unsubscribe();
+            resolve();
+        }, timeoutMs);
     });
+}
+
+// À chaque lancement : Rain doit charger le bundle o8g7, et ses alertes « Rain pas à jour » /
+// « version incompatible » (basées sur Codeberg) ne s'appliquent pas à cette compilation.
+function ensureLoaderConfig() {
+    const loader = useLoaderConfig.getState();
+    if (BUNDLE_URL && (!loader.customLoadUrl?.enabled || loader.customLoadUrl.url !== BUNDLE_URL)) {
+        loader.updateLoaderConfig({ customLoadUrl: { enabled: true, url: BUNDLE_URL } });
+    }
+    if (!useSettings.getState().disableUpdateWarnings) {
+        useSettings.getState().updateSettings({ disableUpdateWarnings: true });
+    }
 }
 
 async function applySetup() {
@@ -47,8 +64,11 @@ async function applySetup() {
         waitForHydration(useSetupState),
         waitForHydration(usePluginSettings),
         persistReady(useLoaderConfig),
+        persistReady(useSettings),
         ...Object.values(PLUGIN_STORES).map(store => waitForHydration(store)),
     ]);
+
+    ensureLoaderConfig();
 
     const state = useSetupState.getState();
     if (state.appliedVersion >= SETUP_VERSION) return;
@@ -56,18 +76,11 @@ async function applySetup() {
     applyPluginSettings();
 
     // Un choix déjà fait dans l'app (activé ou désactivé) n'est jamais écrasé.
+    // Pas de startPlugin ici : initPlugins démarre ensuite tous les plugins activés.
     const plugins = usePluginSettings.getState();
     for (const id of ENABLE_PLUGINS) {
         if (plugins.getPluginSetting(id) !== undefined) continue;
         plugins.updatePluginSetting(id, true);
-        startPlugin(id).catch(error => logger.log(`[o8g7] ${id} n'a pas démarré :`, error));
-    }
-
-    // Les mises à jour du mod viennent ensuite du serveur, pas de Codeberg.
-    if (BUNDLE_URL) {
-        useLoaderConfig.getState().updateLoaderConfig({
-            customLoadUrl: { enabled: true, url: BUNDLE_URL },
-        });
     }
 
     state.updateSettings({ appliedVersion: SETUP_VERSION });
@@ -80,7 +93,12 @@ export default definePlugin({
     author: [{ name: "o8g7", id: 0n }],
     id: "o8g7setup",
     version: "1.0.0",
-    start() {
-        applySetup().catch(error => logger.log("[o8g7] échec de la configuration :", error));
+    // eagerStart est attendu par Rain avant versionCheck() : la config est en place à temps.
+    async eagerStart() {
+        try {
+            await applySetup();
+        } catch (error) {
+            logger.log("[o8g7] échec de la configuration :", error);
+        }
     },
 });
