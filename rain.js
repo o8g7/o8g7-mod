@@ -2100,180 +2100,180 @@
   var init_default = __esm({
     "src/rain/i18n/default.json"() {
       default_default = {
-        ABOUT: "About",
+        ABOUT: "\xC0 propos",
         ACTIONS: "Actions",
-        ADDON_BROWSER: "Addon Browser",
-        APPLY: "Apply",
-        ARE_YOU_SURE_TO_DELETE_THEME: "Are you sure you want to delete {name}?",
-        ASSET_BROWSER: "Asset Browser",
-        ASSET_TYPE: "Asset Type",
-        ASSET_TYPES: "Asset Types",
-        IMAGE_FILES: "Image Files",
-        TEXT_FILES: "Text Files",
+        ADDON_BROWSER: "Catalogue d'extensions",
+        APPLY: "Appliquer",
+        ARE_YOU_SURE_TO_DELETE_THEME: "Supprimer {name} ?",
+        ASSET_BROWSER: "Explorateur de ressources",
+        ASSET_TYPE: "Type de ressource",
+        ASSET_TYPES: "Types de ressources",
+        IMAGE_FILES: "Images",
+        TEXT_FILES: "Fichiers texte",
         AUTO: "Auto",
-        AUTO_DEBUGGER: "Auto Debugger",
-        AUTO_DEVTOOLS: "Auto DevTools",
-        AUTHOR_BY: "by",
-        BRAND: "Brand",
-        CANCEL: "Cancel",
-        CHAT_BACKGROUND: "Chat Background",
+        AUTO_DEBUGGER: "D\xE9bogueur automatique",
+        AUTO_DEVTOOLS: "DevTools automatiques",
+        AUTHOR_BY: "par",
+        BRAND: "Marque",
+        CANCEL: "Annuler",
+        CHAT_BACKGROUND: "Fond du chat",
         CODEBERG: "Codeberg",
-        CONNECTED: "Connected",
-        CONNECT_TO_DEBUG_WEBSOCKET: "Connect to Debugger",
-        CONNECT_TO_HOT_RELOAD_THEME: "Connect to Hot Reload Theme",
-        CONNECT_TO_REACT_DEVTOOLS: "Connect to React DevTools",
-        CONTINUE_ANYWAYS: "Continue anyways",
-        COPIED_TO_CLIPBOARD: "Copied to clipboard",
-        COPY_ASSET_NAME: "Copy Asset Name",
-        COPY_ASSET_INDEX: "Copy Asset Index",
-        COPY_SOURCE_URL: "Copy Source URL",
-        COPY_URL: "Copy URL",
-        COULD_NOT_FIND: "Hmmm... could not find that!",
-        COULD_NOT_LOAD_PREVIEW: "Could not load preview for",
-        CUSTOMISATION: "Customisation",
-        DARK: "Dark",
-        DEBUGGER_URL: "Debugger URL",
-        DELETE: "delete",
-        DELETE_FONT_PACK: "Delete font pack",
+        CONNECTED: "Connect\xE9",
+        CONNECT_TO_DEBUG_WEBSOCKET: "Se connecter au d\xE9bogueur",
+        CONNECT_TO_HOT_RELOAD_THEME: "Se connecter au rechargement du th\xE8me",
+        CONNECT_TO_REACT_DEVTOOLS: "Se connecter \xE0 React DevTools",
+        CONTINUE_ANYWAYS: "Continuer quand m\xEAme",
+        COPIED_TO_CLIPBOARD: "Copi\xE9 dans le presse-papiers",
+        COPY_ASSET_NAME: "Copier le nom de la ressource",
+        COPY_ASSET_INDEX: "Copier l'index de la ressource",
+        COPY_SOURCE_URL: "Copier l'URL source",
+        COPY_URL: "Copier l'URL",
+        COULD_NOT_FIND: "Hmm\u2026 introuvable !",
+        COULD_NOT_LOAD_PREVIEW: "Impossible de charger l'aper\xE7u de",
+        CUSTOMISATION: "Personnalisation",
+        DARK: "Sombre",
+        DEBUGGER_URL: "URL du d\xE9bogueur",
+        DELETE: "supprimer",
+        DELETE_FONT_PACK: "Supprimer le pack de polices",
         DESCRIPTION: "Description",
-        DEVTOOLS_URL: "DevTools URL",
-        DEVELOPER_SETTINGS: "Developer Settings",
-        DEVELOPERS: "Developers",
-        DEVELOPER: "Developer",
+        DEVTOOLS_URL: "URL des DevTools",
+        DEVELOPER_SETTINGS: "Param\xE8tres d\xE9veloppeur",
+        DEVELOPERS: "D\xE9veloppeurs",
+        DEVELOPER: "D\xE9veloppeur",
         DISCORD: "Discord",
-        DISCORD_SERVER: "Discord Server",
-        DISABLED: "Disabled",
-        DISABLE_UPDATE_WARNING: "Disable update warnings",
-        DISCONNECT_FROM_DEBUGGER: "Disconnect from Debugger",
-        EDIT_FONT: "Edit Font",
-        ENABLED: "Enabled",
-        ERROR_BOUNDARY_QUESTION: "Which ErrorBoundary do you want to trip?",
-        ERROR_BOUNDARY_TOOLS_LABEL: "Error Boundary Tools",
-        EXTRACT: "Extract",
-        EXTRACT_FROM_THEME: "Extract fonts from theme",
-        EXTRACT_FROM_THEME_DESC: "Extract font definitions from the current theme",
-        FAILED: "Failed",
-        FAILED_TO_FETCH: "Failed to fetch",
-        FAILED_TO_LOAD: "Failed to load {type}",
-        FAILED_TO_REFRESH_THEME: "Failed to refresh theme",
-        FAILED_TO_REMOVE_THEME: "Failed to remove theme",
-        FAMILY_NAME: "Family Name (to override)",
-        FONT_ENTRIES: "Font Entries",
-        FONT_LINK: "Font Link",
-        FONT_NAME: "Font Name",
-        FONT_PACK_URL: "Font Pack URL",
-        FONT_URL: "Font URL",
-        FONTS: "Fonts",
-        FONTS_DETACH: "Detach",
-        FONTS_DETACH_URL: "Detach font pack URL?",
-        FONTS_DETACH_URL_DESC: "You need to detach the font pack URL from this font pack before you can manually edit its font entries. Do you want to detach the font pack URL?",
+        DISCORD_SERVER: "Serveur Discord",
+        DISABLED: "D\xE9sactiv\xE9",
+        DISABLE_UPDATE_WARNING: "D\xE9sactiver les alertes de mise \xE0 jour",
+        DISCONNECT_FROM_DEBUGGER: "Se d\xE9connecter du d\xE9bogueur",
+        EDIT_FONT: "Modifier la police",
+        ENABLED: "Activ\xE9",
+        ERROR_BOUNDARY_QUESTION: "Quel ErrorBoundary d\xE9clencher ?",
+        ERROR_BOUNDARY_TOOLS_LABEL: "Outils ErrorBoundary",
+        EXTRACT: "Extraire",
+        EXTRACT_FROM_THEME: "Extraire les polices du th\xE8me",
+        EXTRACT_FROM_THEME_DESC: "Extraire les polices d\xE9finies par le th\xE8me actuel",
+        FAILED: "\xC9chec",
+        FAILED_TO_FETCH: "\xC9chec du t\xE9l\xE9chargement",
+        FAILED_TO_LOAD: "Impossible de charger {type}",
+        FAILED_TO_REFRESH_THEME: "Impossible d'actualiser le th\xE8me",
+        FAILED_TO_REMOVE_THEME: "Impossible de supprimer le th\xE8me",
+        FAMILY_NAME: "Nom de famille (\xE0 remplacer)",
+        FONT_ENTRIES: "Polices",
+        FONT_LINK: "Lien de la police",
+        FONT_NAME: "Nom de la police",
+        FONT_PACK_URL: "URL du pack de polices",
+        FONT_URL: "URL de la police",
+        FONTS: "Polices",
+        FONTS_DETACH: "D\xE9tacher",
+        FONTS_DETACH_URL: "D\xE9tacher l'URL du pack de polices ?",
+        FONTS_DETACH_URL_DESC: "Il faut d\xE9tacher l'URL de ce pack de polices avant de pouvoir modifier ses polices \xE0 la main. D\xE9tacher l'URL ?",
         GITHUB: "GitHub",
-        HERMES_BYTECODE: "Hermes Bytecode",
-        HIDE_BACKGROUND: "Show Background",
-        HIDE_CORE: "Hide Core Plugins",
-        HOLD_UP: "Hold up!",
-        HOT_RELOAD_THEME: "Hot Reload Theme",
-        HOT_RELOAD_THEME_DESC: "Automatically refetch your theme upon update",
-        IMPORT: "Import",
-        IMPORT_ENTRIES_TITLE: "Import font entries from a link",
-        IMPORT_ENTRIES_TITLE_DESC: "Directly import from a link with a pre-configured JSON file",
-        IMPORT_FONT: "Import Font",
-        IMPORT_FROM_BROWSER: "Install from browser",
-        IMPORT_FROM_CLIPBOARD: "Import from clipboard",
-        IMPORT_FROM_URL: "Install from URL",
-        IMPORT_TITLE: "Import Font",
-        INCOMPATIBLE_VERSION: "Incompatible discord version",
-        INCOMPATIBLE_VERSION_DESC: "Your current version of discord is incompatible with your rain version, please update",
-        INFO: "Info",
-        INSTALL: "Install",
-        INSTALL_FROM_BROWSER: "Install a theme from the browser",
-        INSTALL_FROM_URL: "Install a theme from URL",
-        INSTALLED: "Installed {name}",
-        INSTALL_REACT_DEVTOOLS: "Install React DevTools",
-        INVALID_DEVTOOLS_URL: "Invalid DevTools URL!",
-        IPA_DOWNLOAD: "Open IPA download",
-        KOFI: "Kofi",
-        LATER: "Later",
-        LIGHT: "Light",
-        LIST_OPTIONS: "List Options",
-        LOAD_FROM_CUSTOM_URL: "Load from custom URL",
-        LOAD_FROM_CUSTOM_URL_DEC: "Load Rain from a custom URL instead of the default",
-        LOADER: "Loader",
-        LOADER_CONFIG: "Loader config",
-        LOADING: "Loading...",
-        LOADING_PREVIEW: "Loading preview...",
-        MANUFACTURER: "Manufacturer",
-        MODEL: "Model",
-        MODEL_ID: "Model ID",
-        NO_DESCRIPTION: "No description provided.",
-        NOT_SUPPORTED_FOR_PREVIEW: "is not supported for preview.",
-        NOTHING_TO_SEE: "Oops! Nothing to see here\u2026 yet!",
-        OPERATING_SYSTEM: "Operating System",
-        OPEN_MANAGER: "Open manager",
+        HERMES_BYTECODE: "Bytecode Hermes",
+        HIDE_BACKGROUND: "Afficher le fond",
+        HIDE_CORE: "Masquer les plugins syst\xE8me",
+        HOLD_UP: "Attends !",
+        HOT_RELOAD_THEME: "Rechargement du th\xE8me en direct",
+        HOT_RELOAD_THEME_DESC: "Recharger le th\xE8me automatiquement \xE0 chaque modification",
+        IMPORT: "Importer",
+        IMPORT_ENTRIES_TITLE: "Importer des polices depuis un lien",
+        IMPORT_ENTRIES_TITLE_DESC: "Importer directement depuis un lien vers un fichier JSON pr\xE9configur\xE9",
+        IMPORT_FONT: "Importer une police",
+        IMPORT_FROM_BROWSER: "Installer depuis le catalogue",
+        IMPORT_FROM_CLIPBOARD: "Importer depuis le presse-papiers",
+        IMPORT_FROM_URL: "Installer depuis une URL",
+        IMPORT_TITLE: "Importer une police",
+        INCOMPATIBLE_VERSION: "Version de Discord incompatible",
+        INCOMPATIBLE_VERSION_DESC: "Ta version de Discord n'est pas compatible avec cette version d'o8g7, mets \xE0 jour",
+        INFO: "Infos",
+        INSTALL: "Installer",
+        INSTALL_FROM_BROWSER: "Installer un th\xE8me depuis le catalogue",
+        INSTALL_FROM_URL: "Installer un th\xE8me depuis une URL",
+        INSTALLED: "{name} install\xE9",
+        INSTALL_REACT_DEVTOOLS: "Installer React DevTools",
+        INVALID_DEVTOOLS_URL: "URL des DevTools invalide !",
+        IPA_DOWNLOAD: "T\xE9l\xE9charger l'IPA",
+        KOFI: "Ko-fi",
+        LATER: "Plus tard",
+        LIGHT: "Clair",
+        LIST_OPTIONS: "Options d'affichage",
+        LOAD_FROM_CUSTOM_URL: "Charger depuis une URL personnalis\xE9e",
+        LOAD_FROM_CUSTOM_URL_DEC: "Charger o8g7 depuis une URL personnalis\xE9e au lieu de celle par d\xE9faut",
+        LOADER: "Chargeur",
+        LOADER_CONFIG: "Configuration du chargeur",
+        LOADING: "Chargement\u2026",
+        LOADING_PREVIEW: "Chargement de l'aper\xE7u\u2026",
+        MANUFACTURER: "Fabricant",
+        MODEL: "Mod\xE8le",
+        MODEL_ID: "Identifiant du mod\xE8le",
+        NO_DESCRIPTION: "Aucune description.",
+        NOT_SUPPORTED_FOR_PREVIEW: "n'est pas pris en charge pour l'aper\xE7u.",
+        NOTHING_TO_SEE: "Oups ! Rien \xE0 voir ici\u2026 pour l'instant !",
+        OPERATING_SYSTEM: "Syst\xE8me d'exploitation",
+        OPEN_MANAGER: "Ouvrir le gestionnaire",
         OPTIONS: "Options",
-        OTHER: "Other",
-        OVERRIDE_THEME_TYPE: "Override Theme Type",
-        PLATFORMS: "Platforms",
+        OTHER: "Autre",
+        OVERRIDE_THEME_TYPE: "Forcer le type de th\xE8me",
+        PLATFORMS: "Plateformes",
         PLUGINS: "Plugins",
-        PLUGIN_RESTART_MESSAGE: "This plugin requires a restart to take effect. Do you want to restart now?",
+        PLUGIN_RESTART_MESSAGE: "Ce plugin n\xE9cessite un red\xE9marrage. Red\xE9marrer maintenant ?",
         PLUGIN__CORE_BADGES: "Badges",
-        PLUGIN__CORE_BADGES_DESC: "Adds raincord badges to raincord devs and supporters",
-        PLUGIN__CORE_COMMANDS: "CoreCommands",
-        PLUGIN__CORE_COMMANDS_DESC: "Provides core commands",
+        PLUGIN__CORE_BADGES_DESC: "Ajoute les badges raincord aux d\xE9veloppeurs et soutiens de raincord",
+        PLUGIN__CORE_COMMANDS: "Commandes syst\xE8me",
+        PLUGIN__CORE_COMMANDS_DESC: "Fournit les commandes de base",
         PLUGIN__CORE_ERRORBOUNDARY: "ErrorBoundary",
-        PLUGIN__CORE_ERRORBOUNDARY_DESC: "Patches ErrorBoundaries to show recovery options",
+        PLUGIN__CORE_ERRORBOUNDARY_DESC: "Affiche des options de r\xE9cup\xE9ration en cas de plantage d'un \xE9cran",
         PLUGIN__CORE_PAINTER: "Painter",
-        PLUGIN__CORE_PAINTER_DESC: "Customize Discord's appearance with themes and fonts",
-        PLUGIN__CORE_RAINENHANCEMENTS: "RainEnhancements",
-        PLUGIN__CORE_RAINENHANCEMENTS_DESC: "Combines many plugins into one to improve your experience",
-        PLUGIN__CORE_SETTINGS: "Settings",
-        PLUGIN__CORE_SETTINGS_DESC: "Injects the settings menu",
-        PREVIEW_NOT_SUPPORTED: "Font previews are not supported on iOS",
-        PREVIEW_TEXT: "The quick brown fox jumps over the lazy dog",
-        RAIN: "Rain",
-        RAIN_DEVELOPER: "Rain Developer",
-        RAIN_LINKS: "Rain Links",
-        RAIN_URL: "Custom URL",
+        PLUGIN__CORE_PAINTER_DESC: "Personnalise l'apparence de Discord avec des th\xE8mes et des polices",
+        PLUGIN__CORE_RAINENHANCEMENTS: "Am\xE9liorations",
+        PLUGIN__CORE_RAINENHANCEMENTS_DESC: "Regroupe plusieurs petits plugins pour am\xE9liorer l'exp\xE9rience",
+        PLUGIN__CORE_SETTINGS: "Param\xE8tres",
+        PLUGIN__CORE_SETTINGS_DESC: "Ajoute le menu des param\xE8tres",
+        PREVIEW_NOT_SUPPORTED: "L'aper\xE7u des polices n'est pas disponible sur iOS",
+        PREVIEW_TEXT: "Portez ce vieux whisky au juge blond qui fume",
+        RAIN: "o8g7",
+        RAIN_DEVELOPER: "D\xE9veloppeur",
+        RAIN_LINKS: "Liens",
+        RAIN_URL: "URL personnalis\xE9e",
         REACT: "React",
         REACT_NATIVE: "React Native",
-        REFETCH: "Refetch",
-        REFETCH_FONTS: "Refetch fonts from source",
-        RELOAD: "Reload",
-        RELOAD_DISCORD: "Reload Discord to apply changes?",
-        REMOVED: "Removed {name}",
-        RESTART_LATER: "Restart later",
-        RESTART_NOW: "Restart now",
-        RESTART_REQUIRED_TO_TAKE_EFFECT: "Restart required to take effect",
-        RETRY: "Retry",
-        RETRY_RENDER: "Retry render",
-        SAFE_MODE: "Safe Mode",
-        SAFE_MODE_REQUIRES_RELOAD: "You must reload for this to take effect, in safe mode all plugins/themes are disabled",
-        HINT_SAFE_MODE: "You are in safemode, plugins are not running but can still be toggled",
+        REFETCH: "Recharger",
+        REFETCH_FONTS: "Recharger les polices depuis la source",
+        RELOAD: "Relancer",
+        RELOAD_DISCORD: "Relancer Discord pour appliquer les changements ?",
+        REMOVED: "{name} supprim\xE9",
+        RESTART_LATER: "Red\xE9marrer plus tard",
+        RESTART_NOW: "Red\xE9marrer maintenant",
+        RESTART_REQUIRED_TO_TAKE_EFFECT: "Red\xE9marrage n\xE9cessaire pour appliquer",
+        RETRY: "R\xE9essayer",
+        RETRY_RENDER: "R\xE9essayer l'affichage",
+        SAFE_MODE: "Mode sans \xE9chec",
+        SAFE_MODE_REQUIRES_RELOAD: "Il faut relancer pour appliquer : en mode sans \xE9chec, tous les plugins et th\xE8mes sont d\xE9sactiv\xE9s",
+        HINT_SAFE_MODE: "Mode sans \xE9chec actif : les plugins ne tournent pas, mais peuvent toujours \xEAtre activ\xE9s ou d\xE9sactiv\xE9s",
         SDK: "SDK",
-        SAVE: "Save",
-        SEARCH_PLACEHOLDER: "Search...",
-        SETTINGS: "Settings",
-        SHOW_BACKGROUND: "Show Chat Background",
-        SHOW_BACKGROUND_DESC: "Shows or hides the theme's background image in chat",
-        SHOW_CORE: "Show Core Plugins",
-        SOME_ENTRIES_ERROR: "Some font entries cannot be imported. Please modify the entries and try again.",
-        SORT_BY: "Sort By",
-        SORT_NAME_AZ: "Name (A-Z)",
-        SORT_NAME_ZA: "Name (Z-A)",
-        SOURCE_URL_PROMPT: "Type in the source URL you want to install from:",
-        THEME_REFRESHED: "Theme refreshed successfully",
-        THEME_REMOVED: "Theme removed successfully",
-        THEMES: "Themes",
-        THEMES_DISABLED_IN_SAFE_MODE: "Themes are disabled in safe mode",
-        UH_OH: "Uh Oh!",
-        UNAPPLY: "Unapply",
-        UNINSTALL: "Uninstall",
-        UNKNOWN_AUTHOR: "Unknown",
-        UPDATE: "Update Rain",
-        UPDATE_RESTART_MESSAGE: "The latest Rain version has been installed, restart for it to take effect",
-        UPDATER: "Rain Updater",
-        USE_CUSTOM_ICONS: "Show custom icons",
-        USE_CUSTOM_ICONS_DESC: "Replace icons with custom ones",
+        SAVE: "Enregistrer",
+        SEARCH_PLACEHOLDER: "Rechercher\u2026",
+        SETTINGS: "Param\xE8tres",
+        SHOW_BACKGROUND: "Afficher le fond du chat",
+        SHOW_BACKGROUND_DESC: "Affiche ou masque l'image de fond du th\xE8me dans le chat",
+        SHOW_CORE: "Afficher les plugins syst\xE8me",
+        SOME_ENTRIES_ERROR: "Certaines polices n'ont pas pu \xEAtre import\xE9es. Corrige-les puis r\xE9essaie.",
+        SORT_BY: "Trier par",
+        SORT_NAME_AZ: "Nom (A-Z)",
+        SORT_NAME_ZA: "Nom (Z-A)",
+        SOURCE_URL_PROMPT: "Saisis l'URL source \xE0 installer :",
+        THEME_REFRESHED: "Th\xE8me actualis\xE9",
+        THEME_REMOVED: "Th\xE8me supprim\xE9",
+        THEMES: "Th\xE8mes",
+        THEMES_DISABLED_IN_SAFE_MODE: "Les th\xE8mes sont d\xE9sactiv\xE9s en mode sans \xE9chec",
+        UH_OH: "Oups !",
+        UNAPPLY: "Retirer",
+        UNINSTALL: "D\xE9sinstaller",
+        UNKNOWN_AUTHOR: "Inconnu",
+        UPDATE: "Mettre \xE0 jour o8g7",
+        UPDATE_RESTART_MESSAGE: "La derni\xE8re version d'o8g7 est install\xE9e, red\xE9marre pour l'appliquer",
+        UPDATER: "Mises \xE0 jour o8g7",
+        USE_CUSTOM_ICONS: "Ic\xF4nes personnalis\xE9es",
+        USE_CUSTOM_ICONS_DESC: "Remplace les ic\xF4nes par des ic\xF4nes personnalis\xE9es",
         VERSIONS: "Versions"
       };
     }
@@ -19967,7 +19967,7 @@ ${pendingInsertLink}` : pendingInsertLink;
                   var member = GuildMemberStore?.getMember?.(guildId, userId);
                   var user = member?.user ?? UserStore?.getUser?.(userId);
                   var name = member?.nick ?? user?.globalName ?? user?.username ?? `User ${userId.slice(0, 6)}`;
-                  var avatarUrl = user?.getAvatarURL?.(true, 64) ?? `https://cdn.discordapp.com/embed/avatars/${Number((BigInt(userId) >> 22n) % 6n)}.png`;
+                  var avatarUrl2 = user?.getAvatarURL?.(true, 64) ?? `https://cdn.discordapp.com/embed/avatars/${Number((BigInt(userId) >> 22n) % 6n)}.png`;
                   var { allowed, denied } = getPermsFromOverwrite(ow);
                   return /* @__PURE__ */ jsxs(import_react_native41.Pressable, {
                     onPress: () => showUserProfile2?.({
@@ -19988,9 +19988,9 @@ ${pendingInsertLink}` : pendingInsertLink;
                           marginBottom: 4
                         },
                         children: [
-                          avatarUrl && /* @__PURE__ */ jsx(import_react_native41.Image, {
+                          avatarUrl2 && /* @__PURE__ */ jsx(import_react_native41.Image, {
                             source: {
-                              uri: avatarUrl
+                              uri: avatarUrl2
                             },
                             style: {
                               width: 20,
@@ -20354,7 +20354,7 @@ ${pendingInsertLink}` : pendingInsertLink;
     var roleIds = member?.roles ?? [];
     var roles = roleIds.map((id) => GuildRoleStore?.getRole?.(guildId, id)).filter(Boolean);
     var perms = getCombinedPerms(guildId, roleIds);
-    var avatarUrl = user?.getAvatarURL?.(true, 64) ?? (user ? `https://cdn.discordapp.com/embed/avatars/${Number((BigInt(user.id) >> 22n) % 6n)}.png` : null);
+    var avatarUrl2 = user?.getAvatarURL?.(true, 64) ?? (user ? `https://cdn.discordapp.com/embed/avatars/${Number((BigInt(user.id) >> 22n) % 6n)}.png` : null);
     var name = member?.nick ?? user?.globalName ?? user?.username ?? userId.slice(0, 8);
     function hasPerm(flagName) {
       if (isOwner) return true;
@@ -20372,9 +20372,9 @@ ${pendingInsertLink}` : pendingInsertLink;
               flex: 1
             },
             children: [
-              avatarUrl && /* @__PURE__ */ jsx(import_react_native44.Image, {
+              avatarUrl2 && /* @__PURE__ */ jsx(import_react_native44.Image, {
                 source: {
-                  uri: avatarUrl
+                  uri: avatarUrl2
                 },
                 style: {
                   width: 24,
@@ -20590,9 +20590,9 @@ ${pendingInsertLink}` : pendingInsertLink;
     }
     return "https://discord.com/api/v9";
   }
-  function fetchPetPetBase64(avatarUrl) {
+  function fetchPetPetBase64(avatarUrl2) {
     return _async_to_generator(function* () {
-      var endpoint = `https://api.popcat.xyz/pet?image=${encodeURIComponent(avatarUrl)}`;
+      var endpoint = `https://api.popcat.xyz/pet?image=${encodeURIComponent(avatarUrl2)}`;
       var response = yield fetch(endpoint);
       if (!response.ok) {
         throw new Error(`Failed to fetch petpet GIF: ${response.status}`);
@@ -20707,8 +20707,8 @@ ${pendingInsertLink}` : pendingInsertLink;
         execute: (args, ctx) => _async_to_generator(function* () {
           try {
             var user = yield UserStore.getUser(args[0].value);
-            var avatarUrl = user.getAvatarURL(128).replace(".webp", ".png");
-            var base64Gif = yield fetchPetPetBase64(avatarUrl);
+            var avatarUrl2 = user.getAvatarURL(128).replace(".webp", ".png");
+            var base64Gif = yield fetchPetPetBase64(avatarUrl2);
             yield sendPetPetAttachment(ctx.channel.id, base64Gif);
           } catch (error) {
             logger.error("[PetPet] Error executing command:", error);
@@ -24644,7 +24644,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
     var { useSafeAreaInsets: useSafeAreaInsets3 } = findByProps("useSafeAreaInsets");
     var { useNavigatorBackPressHandler } = findByProps("useNavigatorBackPressHandler");
     var { Gesture, GestureDetector } = findByProps("Gesture", "GestureDetector");
-    var { Image: Image19, Pressable: Pressable9, ScrollView: ScrollView50, Text: Text9, View: View54, TextInput: TextInput6 } = Native;
+    var { Image: Image19, Pressable: Pressable9, ScrollView: ScrollView50, Text: Text9, View: View53, TextInput: TextInput6 } = Native;
     function DragTarget(properties) {
       var callbacks2 = (0, import_react26.useRef)(properties);
       callbacks2.current = properties;
@@ -24662,7 +24662,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
       }).onFinalize(() => callbacks2.current.onCancel()), []);
       return /* @__PURE__ */ jsx(GestureDetector, {
         gesture,
-        children: /* @__PURE__ */ jsx(View54, {
+        children: /* @__PURE__ */ jsx(View53, {
           collapsable: false,
           style: properties.offset ? {
             transform: [
@@ -24685,7 +24685,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
       var radius = !item.kind ? size / 2 : size >= 44 ? 16 : folder ? 9 : Math.max(5, Math.round(size * 0.28));
       var fill = item.kind === "guild" ? rawColors.BRAND_500 : background;
       if (folder) fill = item.color === void 0 ? folderBackground : `#${item.color.toString(16).padStart(6, "0")}`;
-      return /* @__PURE__ */ jsxs(View54, {
+      return /* @__PURE__ */ jsxs(View53, {
         style: {
           ...CENTER,
           position: "relative",
@@ -24695,7 +24695,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
           backgroundColor: uri ? void 0 : fill
         },
         children: [
-          folder ? item.children.slice(0, 4).map((guild, index) => /* @__PURE__ */ jsx(View54, {
+          folder ? item.children.slice(0, 4).map((guild, index) => /* @__PURE__ */ jsx(View53, {
             style: {
               [index % 2 ? "right" : "left"]: 6,
               [index < 2 ? "top" : "bottom"]: 6,
@@ -24725,7 +24725,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
             },
             children: initials(item.name)
           }),
-          selected ? /* @__PURE__ */ jsx(View54, {
+          selected ? /* @__PURE__ */ jsx(View53, {
             pointerEvents: "none",
             style: [
               styles5.compactSelection,
@@ -24734,7 +24734,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
               }
             ]
           }) : null,
-          badged && (item.mentionCount ? /* @__PURE__ */ jsx(View54, {
+          badged && (item.mentionCount ? /* @__PURE__ */ jsx(View53, {
             style: [
               styles5.mentionBadge,
               {
@@ -24752,7 +24752,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
               },
               children: item.mentionCount > 99 ? "99+" : item.mentionCount
             })
-          }) : item.unread ? /* @__PURE__ */ jsx(View54, {
+          }) : item.unread ? /* @__PURE__ */ jsx(View53, {
             style: [
               styles5.unreadBadge,
               {
@@ -24802,7 +24802,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
       var highlighted = selected || merging;
       var content = /* @__PURE__ */ jsxs(Fragment, {
         children: [
-          list || previewWidth ? artwork : /* @__PURE__ */ jsx(View54, {
+          list || previewWidth ? artwork : /* @__PURE__ */ jsx(View53, {
             style: [
               styles5.selectionRing,
               {
@@ -24837,7 +24837,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
           }) : null
         ]
       });
-      if (previewWidth) return /* @__PURE__ */ jsx(View54, {
+      if (previewWidth) return /* @__PURE__ */ jsx(View53, {
         style: [
           styles5.previewFrame,
           list ? [
@@ -24883,7 +24883,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
       var styles5 = useStyles11();
       var TEXT_DEFAULT = useToken(semanticColors.TEXT_DEFAULT);
       var [editing, setEditing] = (0, import_react26.useState)("idle");
-      if (editing !== "idle") return /* @__PURE__ */ jsxs(View54, {
+      if (editing !== "idle") return /* @__PURE__ */ jsxs(View53, {
         style,
         children: [
           /* @__PURE__ */ jsx(TextInput6, {
@@ -24929,7 +24929,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
       var background = useToken(semanticColors.BACKGROUND_SECONDARY_ALT);
       var foreground = useToken(semanticColors.TEXT_DEFAULT);
       var muted = useToken(semanticColors.TEXT_MUTED);
-      return /* @__PURE__ */ jsx(View54, {
+      return /* @__PURE__ */ jsx(View53, {
         accessibilityRole: "tablist",
         style: filter ? styles5.filterTabs : styles5.viewTabs,
         children: options.map(([id, label, accessibilityLabel = label]) => /* @__PURE__ */ jsx(Pressable9, {
@@ -25237,7 +25237,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
                 width: folderSize
               },
               onMomentumScrollEnd: (event) => setFolderPage(clamp(Math.round(event.nativeEvent.contentOffset.x / folderSize), 0, Math.max(0, pages.length - 1))),
-              children: pages.map((page, pageIndex) => /* @__PURE__ */ jsx(View54, {
+              children: pages.map((page, pageIndex) => /* @__PURE__ */ jsx(View53, {
                 style: [
                   styles5.folderPage,
                   {
@@ -25252,7 +25252,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
               folder,
               style: styles5.folderHeading
             }, folder.id),
-            pages.length > 1 ? /* @__PURE__ */ jsx(View54, {
+            pages.length > 1 ? /* @__PURE__ */ jsx(View53, {
               pointerEvents: "box-none",
               style: styles5.pageDots,
               children: pages.map((_page, index) => /* @__PURE__ */ jsx(Pressable9, {
@@ -25413,7 +25413,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
         }, item.id);
       };
       var viewLabel = view === "servers" ? "servers" : "direct messages";
-      return signal.aborted ? null : /* @__PURE__ */ jsxs(View54, {
+      return signal.aborted ? null : /* @__PURE__ */ jsxs(View53, {
         onLayout: ({ nativeEvent: { layout } }) => {
           if (layout.width > 0 && layout.height > 0) setViewport(layout);
           if (layout.width > 0) onWidthChange(layout.width);
@@ -25429,7 +25429,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
             renderItem: (guild) => renderItem(guild, true),
             handlers: resize.handlers
           }, overlayFolder.id),
-          /* @__PURE__ */ jsx(View54, {
+          /* @__PURE__ */ jsx(View53, {
             accessibilityLabel: resize.visible ? view === "servers" ? "All servers drawer" : "Direct messages drawer" : "Server dock",
             accessibilityViewIsModal: resize.visible,
             importantForAccessibility: resize.visible ? "yes" : "auto",
@@ -25443,7 +25443,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
                 width: dockSpecs.dockWidth
               }
             ],
-            children: /* @__PURE__ */ jsxs(View54, {
+            children: /* @__PURE__ */ jsxs(View53, {
               style: {
                 height: resize.height,
                 overflow: "hidden"
@@ -25470,11 +25470,11 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
                   onAccessibilityAction: () => setDrawerOpen(!resize.visible),
                   onPress: () => setDrawerOpen(!resize.visible),
                   style: styles5.handle,
-                  children: /* @__PURE__ */ jsx(View54, {
+                  children: /* @__PURE__ */ jsx(View53, {
                     style: styles5.handleBar
                   })
                 }),
-                /* @__PURE__ */ jsx(View54, {
+                /* @__PURE__ */ jsx(View53, {
                   pointerEvents: expanded ? "none" : "auto",
                   accessibilityElementsHidden: resize.visible,
                   importantForAccessibility: resize.visible ? "no-hide-descendants" : "auto",
@@ -25482,7 +25482,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
                     styles5.compactFace,
                     resize.compactStyle
                   ],
-                  children: /* @__PURE__ */ jsxs(View54, {
+                  children: /* @__PURE__ */ jsxs(View53, {
                     style: [
                       styles5.dockRow,
                       {
@@ -25494,7 +25494,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
                         length: dockSpecs.itemCountNoExtras
                       }, (_2, index) => {
                         var node = data2.nodes[index];
-                        if (!node || node.kind === "folder" && !node.children.length) return /* @__PURE__ */ jsx(View54, {
+                        if (!node || node.kind === "folder" && !node.children.length) return /* @__PURE__ */ jsx(View53, {
                           accessibilityElementsHidden: true,
                           importantForAccessibility: "no-hide-descendants",
                           style: {
@@ -25505,7 +25505,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
                         }, `spacer-${index}`);
                         return renderItem(node, false, dockSpecs.itemSize);
                       }),
-                      /* @__PURE__ */ jsx(View54, {
+                      /* @__PURE__ */ jsx(View53, {
                         style: [
                           styles5.dockDivider,
                           {
@@ -25540,7 +25540,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
                     ]
                   })
                 }),
-                /* @__PURE__ */ jsx(View54, {
+                /* @__PURE__ */ jsx(View53, {
                   pointerEvents: expanded ? "auto" : "none",
                   accessibilityElementsHidden: !resize.visible,
                   importantForAccessibility: resize.visible ? "auto" : "no-hide-descendants",
@@ -25548,12 +25548,12 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
                     styles5.expandedFace,
                     resize.expandedStyle
                   ],
-                  children: /* @__PURE__ */ jsxs(View54, {
+                  children: /* @__PURE__ */ jsxs(View53, {
                     style: {
                       height: drawerHeight - 16
                     },
                     children: [
-                      /* @__PURE__ */ jsxs(View54, {
+                      /* @__PURE__ */ jsxs(View53, {
                         style: styles5.header,
                         children: [
                           drawerFolder ? /* @__PURE__ */ jsxs(import_react26.Fragment, {
@@ -25605,7 +25605,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
                           })
                         ]
                       }),
-                      /* @__PURE__ */ jsxs(View54, {
+                      /* @__PURE__ */ jsxs(View53, {
                         style: styles5.searchRow,
                         children: [
                           /* @__PURE__ */ jsx(TextInput6, {
@@ -25643,7 +25643,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
                       /* @__PURE__ */ jsx(FlashList, {
                         data: visible,
                         numColumns: columns,
-                        ListEmptyComponent: /* @__PURE__ */ jsx(View54, {
+                        ListEmptyComponent: /* @__PURE__ */ jsx(View53, {
                           style: styles5.emptyContainer,
                           children: /* @__PURE__ */ jsx(Text9, {
                             style: styles5.emptyText,
@@ -25663,7 +25663,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
                         onScroll: (event) => {
                           scrollY.current = Math.max(0, event.nativeEvent.contentOffset.y);
                         },
-                        renderItem: ({ item, index }) => /* @__PURE__ */ jsx(View54, {
+                        renderItem: ({ item, index }) => /* @__PURE__ */ jsx(View53, {
                           style: {
                             marginLeft: index % columns * columnOffset,
                             width: grid ? ITEM_WIDTH : "100%",
@@ -25684,7 +25684,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
               ]
             })
           }),
-          active2 ? /* @__PURE__ */ jsx(View54, {
+          active2 ? /* @__PURE__ */ jsx(View53, {
             accessibilityLabel: `Dragging ${active2.source.name ?? "Folder"}`,
             accessibilityRole: "summary",
             pointerEvents: "none",
@@ -25703,7 +25703,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
               previewWidth
             })
           }) : null,
-          active2?.source.kind === "guild" && active2.source.folderId && (drawerFolder || overlayFolder) && /* @__PURE__ */ jsx(View54, {
+          active2?.source.kind === "guild" && active2.source.folderId && (drawerFolder || overlayFolder) && /* @__PURE__ */ jsx(View53, {
             ref: drag.exitTarget,
             collapsable: false,
             onLayout: drag.measureExit,
@@ -25719,7 +25719,7 @@ Missing the redesign ${isFunction ? "function" : "component"}: ${prop}. Please b
                 bottom: bottomInset + 24
               }
             ],
-            children: /* @__PURE__ */ jsx(View54, {
+            children: /* @__PURE__ */ jsx(View53, {
               style: {
                 height: 42,
                 justifyContent: "center",
@@ -29650,7 +29650,7 @@ ${ruleJson}
     return Object.keys(Developers).some((key) => Developers[key].name === author.name);
   }
   function unifyRainPlugin(manifest) {
-    var developers2 = manifest.author?.filter(isDeveloper) ?? [];
+    var developers = manifest.author?.filter(isDeveloper) ?? [];
     var contributors = manifest.author?.filter((a) => !isDeveloper(a)) ?? [];
     var isPlatformSupported = !manifest.platforms || manifest.platforms.includes(import_react_native55.Platform.OS);
     var arePredicatesMet = !manifest.predicates || manifest.predicates.every((p) => {
@@ -29664,7 +29664,7 @@ ${ruleJson}
       id: manifest.id,
       name: manifest.name,
       description: manifest.description,
-      developers: developers2,
+      developers,
       contributors,
       isEnabled: () => isPluginEnabled(manifest.id),
       isCore: () => isPluginCore(manifest.id),
@@ -29862,14 +29862,6 @@ ${ruleJson}
     }
   });
 
-  // src/assets/kofi.png
-  var kofi_default;
-  var init_kofi = __esm({
-    "src/assets/kofi.png"() {
-      kofi_default = "data:image/png;base64,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";
-    }
-  });
-
   // src/assets/rain.png
   var rain_default;
   var init_rain2 = __esm({
@@ -29885,22 +29877,18 @@ ${ruleJson}
       init_asyncIteratorSymbol();
       init_promiseAllSettled();
       init_codeberg();
-      init_kofi();
       init_rain2();
     }
   });
 
   // src/lib/info.ts
-  var DISCORD_SERVER, CODEBERG, KOFI, GITHUB;
+  var CODEBERG;
   var init_info = __esm({
     "src/lib/info.ts"() {
       "use strict";
       init_asyncIteratorSymbol();
       init_promiseAllSettled();
-      DISCORD_SERVER = "https://discord.gg/6cN7wKa8gp";
       CODEBERG = "https://codeberg.org/raincord/rain";
-      KOFI = "https://ko-fi.com/cocobo1";
-      GITHUB = "https://github.com/ra1ncord/rain";
     }
   });
 
@@ -30679,7 +30667,7 @@ ${ruleJson}
           "profileUsername": true
         }
       };
-      SETUP_VERSION = 4;
+      SETUP_VERSION = 5;
     }
   });
 
@@ -31703,60 +31691,20 @@ ${ruleJson}
   });
 
   // src/rain/pages/Rain/Developers.tsx
+  function avatarUrl(user) {
+    if (!user?.avatar) return void 0;
+    var ext = user.avatar.startsWith("a_") ? "gif" : "png";
+    return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${ext}?size=128`;
+  }
   function DevelopersPage() {
-    var accentColor = resolveSemanticColor(semanticColors.BACKGROUND_ACCENT);
-    var hexAlpha = (hex, alpha) => hex + alpha;
-    var handleProfilePress = (dev) => {
-      if (dev.id) {
-        showUserProfileActionSheet5({
-          userId: dev.id
-        });
-      }
-    };
-    var users = FluxUtils.useStateFromStoresArray([
+    var user = FluxUtils.useStateFromStores([
       UserStore
     ], () => {
-      developers.forEach((d) => d.dev.id && maybeFetchUser2(d.dev.id));
-      return developers.map((d) => d.dev.id ? UserStore.getUser(d.dev.id) : null);
+      var cached = UserStore.getUser(DEVELOPER.id);
+      if (!cached) maybeFetchUser2?.(DEVELOPER.id);
+      return cached;
     });
-    var getDiscordAvatar = (user) => {
-      if (!user?.avatar) return void 0;
-      return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
-    };
-    var randomHearts = (0, import_react34.useMemo)(() => {
-      var _loop2 = function(i2) {
-        var size = minSize + Math.random() * (maxSize - minSize);
-        var top = void 0;
-        var left = void 0;
-        var attempts = 0;
-        var maxAttempts = 50;
-        do {
-          top = margin + Math.random() * (cardHeight - size - margin * 2);
-          left = margin + Math.random() * (cardWidth - size - margin * 2);
-          attempts++;
-        } while (attempts < maxAttempts && hearts.some((h) => {
-          var dx = Math.abs(top - h.top);
-          var dy = Math.abs(left - h.left);
-          var minDist = (size + h.size) / 2 + 5;
-          return dx < minDist && dy < minDist;
-        }));
-        hearts.push({
-          top,
-          left,
-          size,
-          opacity: 0.08 + Math.random() * 0.1
-        });
-      };
-      var hearts = [];
-      var heartCount = 24;
-      var minSize = 20;
-      var maxSize = 36;
-      var margin = 10;
-      var cardWidth = 600;
-      var cardHeight = 250;
-      for (var i = 0; i < heartCount; i++) _loop2(i);
-      return hearts;
-    }, []);
+    var avatar = avatarUrl(user);
     return /* @__PURE__ */ jsx(import_react_native65.ScrollView, {
       style: {
         flex: 1
@@ -31769,176 +31717,60 @@ ${ruleJson}
         spacing: 24,
         children: [
           /* @__PURE__ */ jsx(TableRowGroup, {
-            title: "Developers",
-            children: developers.map((dev, index) => {
-              var avatarUrl = getDiscordAvatar(users[index]);
-              return /* @__PURE__ */ jsx(TableRow, {
-                label: dev.name,
-                subLabel: dev.role,
-                icon: avatarUrl ? /* @__PURE__ */ jsx(import_react_native65.Image, {
-                  source: {
-                    uri: avatarUrl
-                  },
-                  style: {
-                    width: 48,
-                    height: 48,
-                    borderRadius: 8
-                  }
-                }) : void 0,
-                onPress: () => handleProfilePress(dev.dev),
-                arrow: true
-              }, dev.name);
+            title: "D\xE9veloppeur",
+            children: /* @__PURE__ */ jsx(TableRow, {
+              label: user?.globalName ?? user?.username ?? DEVELOPER.fallbackName,
+              subLabel: DEVELOPER.role,
+              icon: avatar ? /* @__PURE__ */ jsx(import_react_native65.Image, {
+                source: {
+                  uri: avatar
+                },
+                style: {
+                  width: 48,
+                  height: 48,
+                  borderRadius: 24
+                }
+              }) : void 0,
+              onPress: () => showUserProfileActionSheet5?.({
+                userId: DEVELOPER.id
+              }),
+              arrow: true
             })
           }),
-          /* @__PURE__ */ jsxs(Card, {
-            children: [
-              /* @__PURE__ */ jsx(import_react_native65.View, {
-                style: {
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
-                  overflow: "hidden"
-                },
-                children: randomHearts.map((heart, i) => /* @__PURE__ */ jsx(import_react_native65.Image, {
-                  source: findAssetId2("HeartIcon"),
-                  style: {
-                    position: "absolute",
-                    top: heart.top,
-                    left: heart.left,
-                    width: heart.size,
-                    height: heart.size,
-                    tintColor: resolveSemanticColor(semanticColors.BACKGROUND_ACCENT),
-                    opacity: heart.opacity
-                  }
-                }, i))
-              }),
-              /* @__PURE__ */ jsx(import_react_native65.View, {
-                style: {
-                  flexDirection: "row",
-                  alignItems: "center",
-                  marginBottom: 16
-                },
-                children: /* @__PURE__ */ jsx(Text, {
-                  variant: "text-md/semibold",
-                  style: {
-                    color: "text-default"
-                  },
-                  children: "Donators"
-                })
-              }),
-              /* @__PURE__ */ jsx(import_react_native65.View, {
-                style: {
-                  flexDirection: "row",
-                  flexWrap: "wrap",
-                  gap: 8
-                },
-                children: donators.map((donator) => /* @__PURE__ */ jsx(import_react_native65.View, {
-                  style: {
-                    paddingVertical: 6,
-                    paddingHorizontal: 12,
-                    borderRadius: 16,
-                    backgroundColor: hexAlpha(accentColor, "50"),
-                    borderWidth: 1,
-                    borderColor: hexAlpha(accentColor, "70")
-                  },
-                  children: /* @__PURE__ */ jsx(Text, {
-                    variant: "text-sm/normal",
-                    style: {
-                      color: "text-default"
-                    },
-                    children: donator
-                  })
-                }, donator))
-              })
-            ]
+          /* @__PURE__ */ jsx(TableRowGroup, {
+            title: "Bas\xE9 sur",
+            children: /* @__PURE__ */ jsx(TableRow, {
+              label: "Rain",
+              subLabel: "Mod Discord open source (MPL-2.0)",
+              onPress: () => import_react_native65.Linking.openURL(RAIN_URL),
+              arrow: true
+            })
           })
         ]
       })
     });
   }
-  var import_react34, import_react_native65, showUserProfileActionSheet5, maybeFetchUser2, developers, donators;
+  var import_react_native65, showUserProfileActionSheet5, maybeFetchUser2, DEVELOPER, RAIN_URL;
   var init_Developers2 = __esm({
     "src/rain/pages/Rain/Developers.tsx"() {
       "use strict";
       init_asyncIteratorSymbol();
       init_promiseAllSettled();
       init_jsxRuntime();
-      init_assets();
-      init_color();
-      init_i18n();
       init_lazy();
       init_metro();
       init_common();
       init_components();
       init_stores();
-      init_Developers();
-      import_react34 = __toESM(require_react());
       import_react_native65 = __toESM(require_react_native());
       showUserProfileActionSheet5 = findByName("showUserProfileActionSheet");
       ({ getUser: maybeFetchUser2 } = lazyDestructure(() => findByProps("getUser", "fetchProfile")));
-      developers = [
-        {
-          name: "cocobo1",
-          role: "Founder & Main Developer",
-          dev: Developers.cocobo1
-        },
-        {
-          name: "bwlok",
-          role: Strings.RAIN_DEVELOPER,
-          dev: Developers.Bwlok
-        },
-        {
-          name: "kmmiio99o",
-          role: Strings.RAIN_DEVELOPER,
-          dev: Developers.kmmiio99o
-        },
-        {
-          name: "CatStars",
-          role: Strings.RAIN_DEVELOPER,
-          dev: Developers.SerStars
-        },
-        {
-          name: "J",
-          role: Strings.RAIN_DEVELOPER,
-          dev: Developers.j
-        },
-        {
-          name: "Reyyan",
-          role: Strings.RAIN_DEVELOPER,
-          dev: Developers.reyyan1
-        },
-        {
-          name: "John",
-          role: Strings.RAIN_DEVELOPER,
-          dev: Developers.John
-        },
-        {
-          name: "Livie",
-          role: Strings.RAIN_DEVELOPER,
-          dev: Developers.Livie
-        }
-      ];
-      donators = [
-        "Chocolate Milk",
-        "Chloe~\u2665",
-        "bruhours",
-        "Mezque",
-        "Fizz",
-        "snp",
-        "Clover",
-        "Stella",
-        "Twimble Time Mods",
-        "Bread Cat",
-        "/usr/choccy-chan \u30C4",
-        "the-ocean-in-motion",
-        "han",
-        "nyx",
-        "force",
-        "Plank",
-        "Ibby"
-      ];
+      DEVELOPER = {
+        id: "355451980594020353",
+        fallbackName: "o8g7",
+        role: "D\xE9veloppeur o8g7"
+      };
+      RAIN_URL = "https://codeberg.org/raincord/rain";
     }
   });
 
@@ -31965,7 +31797,6 @@ ${ruleJson}
   function General() {
     var debugInfo2 = getDebugInfo();
     var navigation2 = NavigationNative.useNavigation();
-    var easterEggTaps = 0;
     var { developerSettings, safeMode, updateSettings } = useSettings();
     return /* @__PURE__ */ jsx(import_react_native66.ScrollView, {
       style: {
@@ -32035,13 +31866,7 @@ ${ruleJson}
                 }),
                 trailing: /* @__PURE__ */ jsx(TableRow.TrailingText, {
                   text: debugInfo2.rain.version
-                }),
-                onPress: () => {
-                  easterEggTaps += 1;
-                  if (easterEggTaps >= 10) {
-                    import_react_native66.Linking.openURL("https://www.youtube.com/watch?v=9FjGP4t2zKY");
-                  }
-                }
+                })
               }),
               /* @__PURE__ */ jsx(TableRow, {
                 label: Strings.DISCORD,
@@ -32069,7 +31894,7 @@ ${ruleJson}
             title: Strings.SETTINGS,
             children: [
               /* @__PURE__ */ jsx(TableRow, {
-                label: "Reload App",
+                label: "Relancer l'app",
                 icon: /* @__PURE__ */ jsx(TableRow.Icon, {
                   source: findAssetId2("RetryIcon")
                 }),
@@ -32122,57 +31947,19 @@ ${ruleJson}
               })
             ]
           }),
-          /* @__PURE__ */ jsxs(TableRowGroup, {
-            title: Strings.RAIN_LINKS,
-            children: [
-              /* @__PURE__ */ jsx(TableRow, {
-                arrow: true,
-                label: Strings.DISCORD_SERVER,
-                icon: /* @__PURE__ */ jsx(TableRow.Icon, {
-                  source: findAssetId2("Discord")
-                }),
-                onPress: () => import_react_native66.Linking.openURL(DISCORD_SERVER)
+          /* @__PURE__ */ jsx(TableRowGroup, {
+            title: "Cr\xE9dits",
+            children: /* @__PURE__ */ jsx(TableRow, {
+              arrow: true,
+              label: Strings.DEVELOPERS,
+              icon: /* @__PURE__ */ jsx(TableRow.Icon, {
+                source: findAssetId2("CircleInformationIcon-primary")
               }),
-              /* @__PURE__ */ jsx(TableRow, {
-                arrow: true,
-                label: Strings.CODEBERG,
-                icon: /* @__PURE__ */ jsx(TableRow.Icon, {
-                  source: {
-                    uri: codeberg_default
-                  }
-                }),
-                onPress: () => import_react_native66.Linking.openURL(CODEBERG)
-              }),
-              /* @__PURE__ */ jsx(TableRow, {
-                arrow: true,
-                label: Strings.GITHUB,
-                icon: /* @__PURE__ */ jsx(TableRow.Icon, {
-                  source: findAssetId2("img_account_sync_github_white")
-                }),
-                onPress: () => import_react_native66.Linking.openURL(GITHUB)
-              }),
-              /* @__PURE__ */ jsx(TableRow, {
-                arrow: true,
-                label: Strings.KOFI,
-                icon: /* @__PURE__ */ jsx(TableRow.Icon, {
-                  source: {
-                    uri: kofi_default
-                  }
-                }),
-                onPress: () => import_react_native66.Linking.openURL(KOFI)
-              }),
-              /* @__PURE__ */ jsx(TableRow, {
-                arrow: true,
-                label: Strings.DEVELOPERS,
-                icon: /* @__PURE__ */ jsx(TableRow.Icon, {
-                  source: findAssetId2("CircleInformationIcon-primary")
-                }),
-                onPress: () => navigation2.push("RAIN_CUSTOM_PAGE", {
-                  title: Strings.DEVELOPERS,
-                  render: () => /* @__PURE__ */ jsx(DevelopersPage, {})
-                })
+              onPress: () => navigation2.push("RAIN_CUSTOM_PAGE", {
+                title: Strings.DEVELOPERS,
+                render: () => /* @__PURE__ */ jsx(DevelopersPage, {})
               })
-            ]
+            })
           })
         ]
       })
@@ -32194,7 +31981,6 @@ ${ruleJson}
       init_color();
       init_assets2();
       init_i18n();
-      init_info();
       init_common();
       init_components();
       import_react_native66 = __toESM(require_react_native());
@@ -33023,14 +32809,14 @@ ${ruleJson}
     var { bottom: bottomInset } = useSafeAreaInsets();
     var { right: rightInset } = useSafeAreaInsets();
     var navigation2 = NavigationNative.useNavigation();
-    var filterFn = (0, import_react35.useMemo)(() => {
+    var filterFn = (0, import_react34.useMemo)(() => {
       if (activeFilterKeys.length === 0) return null;
       return (item) => activeFilterKeys.every((key) => props.filterOptions[key](item));
     }, [
       activeFilterKeys,
       props.filterOptions
     ]);
-    (0, import_react35.useEffect)(() => {
+    (0, import_react34.useEffect)(() => {
       if (props.OptionsActionSheetComponent) {
         navigation2.setOptions({
           headerRight: () => /* @__PURE__ */ jsx(IconButton, {
@@ -33044,12 +32830,12 @@ ${ruleJson}
     }, [
       navigation2
     ]);
-    (0, import_react35.useEffect)(() => {
+    (0, import_react34.useEffect)(() => {
       setCompact(settings3.compactMode ?? false);
     }, [
       settings3.compactMode
     ]);
-    (0, import_react35.useEffect)(() => {
+    (0, import_react34.useEffect)(() => {
       var sortKey = props.defaultSortKey;
       if (props.sortOptions && sortKey && props.sortOptions[sortKey]) {
         setSortFn(() => props.sortOptions[sortKey]);
@@ -33059,7 +32845,7 @@ ${ruleJson}
       props.sortOptions,
       props.defaultSortKey
     ]);
-    var results = (0, import_react35.useMemo)(() => {
+    var results = (0, import_react34.useMemo)(() => {
       var values = props.items;
       if (props.resolveItem) values = values.map(props.resolveItem).filter(isNotNil);
       var items = values.filter((i) => isNotNil(i) && typeof i === "object");
@@ -33077,7 +32863,7 @@ ${ruleJson}
       filterFn,
       search
     ]);
-    var onInstallPress = (0, import_react35.useCallback)(() => {
+    var onInstallPress = (0, import_react34.useCallback)(() => {
       if (!props.installAction) return () => {
       };
       var { label, onPress, fetchFn } = props.installAction;
@@ -33092,7 +32878,7 @@ ${ruleJson}
     }, [
       props.installAction
     ]);
-    var onInstallBrowserPress = (0, import_react35.useCallback)(() => {
+    var onInstallBrowserPress = (0, import_react34.useCallback)(() => {
       if (!props.installBrowserAction) return () => {
       };
       var { label, onPress, fetchFn } = props.installBrowserAction;
@@ -33290,7 +33076,7 @@ ${ruleJson}
       ]
     });
   }
-  var import_fuzzysort, import_react35, React27, import_react_native67;
+  var import_fuzzysort, import_react34, React27, import_react_native67;
   var init_AddonPage = __esm({
     "src/rain/pages/Addon/AddonPage.tsx"() {
       "use strict";
@@ -33308,7 +33094,7 @@ ${ruleJson}
       init_components();
       init_dist();
       import_fuzzysort = __toESM(require_fuzzysort());
-      import_react35 = __toESM(require_react());
+      import_react34 = __toESM(require_react());
       React27 = __toESM(require_react());
       import_react_native67 = __toESM(require_react_native());
     }
@@ -33393,8 +33179,8 @@ ${ruleJson}
     });
   }
   function PluginCard({ result, item: plugin, compact }) {
-    var [toggling, setToggling] = (0, import_react36.useState)(false);
-    var cardContextValue = (0, import_react36.useMemo)(() => ({
+    var [toggling, setToggling] = (0, import_react35.useState)(false);
+    var cardContextValue = (0, import_react35.useMemo)(() => ({
       plugin,
       result
     }), [
@@ -33584,7 +33370,7 @@ ${ruleJson}
       })
     });
   }
-  var import_chroma_js8, import_react36, import_react_native68, CardContext, useCardContext, Actions;
+  var import_chroma_js8, import_react35, import_react_native68, CardContext, useCardContext, Actions;
   var init_PluginCard = __esm({
     "src/rain/pages/Plugins/components/PluginCard.tsx"() {
       "use strict";
@@ -33602,10 +33388,10 @@ ${ruleJson}
       init_components();
       init_plugins3();
       import_chroma_js8 = __toESM(require_chroma_js());
-      import_react36 = __toESM(require_react());
+      import_react35 = __toESM(require_react());
       import_react_native68 = __toESM(require_react_native());
-      CardContext = /* @__PURE__ */ (0, import_react36.createContext)(null);
-      useCardContext = () => (0, import_react36.useContext)(CardContext);
+      CardContext = /* @__PURE__ */ (0, import_react35.createContext)(null);
+      useCardContext = () => (0, import_react35.useContext)(CardContext);
       Actions = () => {
         var { plugin } = useCardContext();
         var navigation2 = NavigationNative.useNavigation();
@@ -33672,7 +33458,7 @@ ${ruleJson}
         return Number(a.isEnabled()) - Number(b3.isEnabled());
       }
     };
-    var filteredItems2 = (0, import_react37.useMemo)(() => {
+    var filteredItems2 = (0, import_react36.useMemo)(() => {
       return items.filter((p) => {
         if (p.devOnly && !developerSettings) {
           return false;
@@ -33720,14 +33506,14 @@ ${ruleJson}
   }
   function Plugins() {
     useSettings();
-    var items = (0, import_react37.useMemo)(() => {
+    var items = (0, import_react36.useMemo)(() => {
       return Array.from(pluginInstances.values()).map(unifyRainPlugin);
     }, []);
     return /* @__PURE__ */ jsx(PluginPage, {
       useItems: () => items
     });
   }
-  var import_react37;
+  var import_react36;
   var init_Plugins = __esm({
     "src/rain/pages/Plugins/index.tsx"() {
       "use strict";
@@ -33738,7 +33524,7 @@ ${ruleJson}
       init_i18n();
       init_plugins3();
       init_AddonPage();
-      import_react37 = __toESM(require_react());
+      import_react36 = __toESM(require_react());
       init_PluginCard();
       init_rain();
     }
@@ -34368,11 +34154,11 @@ ${ruleJson}
     });
   }
   function ThemeInfoActionSheet({ theme, navigation: navigation2 }) {
-    var [themeState, setThemeState] = (0, import_react38.useState)({
+    var [themeState, setThemeState] = (0, import_react37.useState)({
       ...theme
     });
-    var [loading, setLoading] = (0, import_react38.useState)(false);
-    (0, import_react38.useEffect)(() => {
+    var [loading, setLoading] = (0, import_react37.useState)(false);
+    (0, import_react37.useEffect)(() => {
       var interval = setInterval(() => {
         setThemeState({
           ...theme
@@ -34504,7 +34290,7 @@ ${ruleJson}
       })
     });
   }
-  var import_react38, import_react_native71, showUserProfileActionSheet6, maybeFetchUser3;
+  var import_react37, import_react_native71, showUserProfileActionSheet6, maybeFetchUser3;
   var init_ThemeInfoActionSheet = __esm({
     "src/rain/pages/Themes/sheets/ThemeInfoActionSheet.tsx"() {
       "use strict";
@@ -34524,7 +34310,7 @@ ${ruleJson}
       init_components();
       init_stores();
       init_themes();
-      import_react38 = __toESM(require_react());
+      import_react37 = __toESM(require_react());
       import_react_native71 = __toESM(require_react_native());
       showUserProfileActionSheet6 = findByNameLazy("showUserProfileActionSheet");
       ({ getUser: maybeFetchUser3 } = lazyDestructure(() => findByProps("getUser", "fetchProfile")));
@@ -35270,8 +35056,8 @@ ${ruleJson}
   }
   function FontsExtractor({ fonts: fonts2, setName }) {
     var themeFonts = currentTheme.fonts;
-    var [fontName, setFontName] = (0, import_react39.useState)(guessFontName(Object.values(themeFonts)));
-    var [error, setError] = (0, import_react39.useState)(void 0);
+    var [fontName, setFontName] = (0, import_react38.useState)(guessFontName(Object.values(themeFonts)));
+    var [error, setError] = (0, import_react38.useState)(void 0);
     return /* @__PURE__ */ jsxs(import_react_native73.View, {
       style: {
         padding: 8,
@@ -35319,9 +35105,9 @@ ${ruleJson}
     });
   }
   function JsonFontImporter({ fonts: fonts2, setName, setSource }) {
-    var [fontLink, setFontLink] = (0, import_react39.useState)("");
-    var [saving, setSaving] = (0, import_react39.useState)(false);
-    var [error, setError] = (0, import_react39.useState)(void 0);
+    var [fontLink, setFontLink] = (0, import_react38.useState)("");
+    var [saving, setSaving] = (0, import_react38.useState)(false);
+    var [error, setError] = (0, import_react38.useState)(void 0);
     return /* @__PURE__ */ jsxs(import_react_native73.View, {
       style: {
         padding: 8,
@@ -35365,8 +35151,8 @@ ${ruleJson}
     });
   }
   function EntryEditorActionSheet(props) {
-    var [familyName, setFamilyName] = (0, import_react39.useState)(props.name);
-    var [fontUrl2, setFontUrl] = (0, import_react39.useState)(props.fontEntries[props.name]);
+    var [familyName, setFamilyName] = (0, import_react38.useState)(props.name);
+    var [fontUrl2, setFontUrl] = (0, import_react38.useState)(props.fontEntries[props.name]);
     return /* @__PURE__ */ jsxs(import_react_native73.View, {
       style: {
         padding: 8,
@@ -35421,10 +35207,10 @@ ${ruleJson}
     }), "FontEditorActionSheet");
   }
   function NewEntryRow({ fontName, fontEntry }) {
-    var nameRef = (0, import_react39.useRef)(void 0);
-    var urlRef = (0, import_react39.useRef)(void 0);
-    var [nameSet, setNameSet] = (0, import_react39.useState)(false);
-    var [error, setError] = (0, import_react39.useState)();
+    var nameRef = (0, import_react38.useRef)(void 0);
+    var urlRef = (0, import_react38.useRef)(void 0);
+    var [nameSet, setNameSet] = (0, import_react38.useState)(false);
+    var [error, setError] = (0, import_react38.useState)();
     return /* @__PURE__ */ jsxs(import_react_native73.View, {
       style: {
         flexDirection: "row",
@@ -35487,11 +35273,11 @@ ${ruleJson}
   }
   function FontEditor(props) {
     var currentFonts = useFonts((state2) => state2.fonts);
-    var [name, setName] = (0, import_react39.useState)(props.name);
-    var [source, setSource] = (0, import_react39.useState)(props.name && currentFonts[props.name]?.source);
-    var [importing, setIsImporting] = (0, import_react39.useState)(false);
-    var [errors, setErrors] = (0, import_react39.useState)();
-    var memoEntry = (0, import_react39.useMemo)(() => {
+    var [name, setName] = (0, import_react38.useState)(props.name);
+    var [source, setSource] = (0, import_react38.useState)(props.name && currentFonts[props.name]?.source);
+    var [importing, setIsImporting] = (0, import_react38.useState)(false);
+    var [errors, setErrors] = (0, import_react38.useState)();
+    var memoEntry = (0, import_react38.useMemo)(() => {
       return v.from(props.name ? {
         ...currentFonts[props.name]?.main
       } : {});
@@ -35501,7 +35287,7 @@ ${ruleJson}
     ]);
     var fontEntries = memoEntry;
     var navigation2 = NavigationNative.useNavigation();
-    var [, forceUpdate] = (0, import_react39.useReducer)(() => ({}), 0);
+    var [, forceUpdate] = (0, import_react38.useReducer)(() => ({}), 0);
     return /* @__PURE__ */ jsx(import_react_native73.ScrollView, {
       style: {
         flex: 1
@@ -35677,7 +35463,7 @@ ${ruleJson}
       })
     });
   }
-  var import_react39, import_react_native73, actionSheet2, openAlert2, AlertModal3, AlertActionButton3;
+  var import_react38, import_react_native73, actionSheet2, openAlert2, AlertModal3, AlertActionButton3;
   var init_FontEditor = __esm({
     "src/rain/pages/Fonts/FontEditor.tsx"() {
       "use strict";
@@ -35695,7 +35481,7 @@ ${ruleJson}
       init_components();
       init_wrappers();
       init_fonts();
-      import_react39 = __toESM(require_react());
+      import_react38 = __toESM(require_react());
       import_react_native73 = __toESM(require_react_native());
       actionSheet2 = findByPropsLazy("hideActionSheet");
       ({ openAlert: openAlert2 } = lazyDestructure(() => findByProps("openAlert", "dismissAlert")));
@@ -35713,21 +35499,21 @@ ${ruleJson}
 
   // src/rain/pages/Fonts/FontCard.tsx
   function FontPreview({ font }) {
-    var [loaded, setLoaded] = (0, import_react40.useState)(false);
-    var [WebView, setWebView] = (0, import_react40.useState)(null);
-    var [isReady, setIsReady] = (0, import_react40.useState)(false);
+    var [loaded, setLoaded] = (0, import_react39.useState)(false);
+    var [WebView, setWebView] = (0, import_react39.useState)(null);
+    var [isReady, setIsReady] = (0, import_react39.useState)(false);
     var styles5 = useStyles14();
-    var [fontUri, setFontUri] = (0, import_react40.useState)(null);
+    var [fontUri, setFontUri] = (0, import_react39.useState)(null);
     var TEXT_DEFAULT = useToken2(tokens.colors.TEXT_DEFAULT);
     var { fontFamily: fontFamilyList, fontSize } = TextStyleSheet["text-md/medium"];
     var fontFamily = fontFamilyList.split(/,/g)[0];
-    (0, import_react40.useEffect)(() => {
+    (0, import_react39.useEffect)(() => {
       var webViewModule = findByProps("WebView");
       if (webViewModule?.WebView) {
         setWebView(() => webViewModule.WebView);
       }
     }, []);
-    (0, import_react40.useEffect)(() => {
+    (0, import_react39.useEffect)(() => {
       var getFontUri = () => _async_to_generator(function* () {
         var url2 = font.main[fontFamily];
         if (!url2) return;
@@ -35749,7 +35535,7 @@ ${ruleJson}
       font,
       fontFamily
     ]);
-    (0, import_react40.useEffect)(() => {
+    (0, import_react39.useEffect)(() => {
       if (WebView && fontUri) {
         setIsReady(true);
       }
@@ -35757,7 +35543,7 @@ ${ruleJson}
       WebView,
       fontUri
     ]);
-    var props = (0, import_react40.useMemo)(() => ({
+    var props = (0, import_react39.useMemo)(() => ({
       family: fontUri,
       size: fontSize * import_react_native74.PixelRatio.getFontScale(),
       color: TEXT_DEFAULT,
@@ -35926,7 +35712,7 @@ ${ruleJson}
       })
     });
   }
-  var import_react40, import_react_native74, useToken2, useStyles14;
+  var import_react39, import_react_native74, useToken2, useStyles14;
   var init_FontCard = __esm({
     "src/rain/pages/Fonts/FontCard.tsx"() {
       "use strict";
@@ -35945,7 +35731,7 @@ ${ruleJson}
       init_common();
       init_components();
       init_fonts();
-      import_react40 = __toESM(require_react());
+      import_react39 = __toESM(require_react());
       import_react_native74 = __toESM(require_react_native());
       init_FontEditor();
       init_preview();
@@ -36167,10 +35953,10 @@ Type: ${asset.type}`,
 
   // src/rain/pages/Developer/AssetBrowser.tsx
   function AssetBrowser() {
-    var [search, setSearch] = (0, import_react41.useState)("");
-    var [updateTick, setUpdateTick] = (0, import_react41.useState)(0);
+    var [search, setSearch] = (0, import_react40.useState)("");
+    var [updateTick, setUpdateTick] = (0, import_react40.useState)(0);
     var navigation2 = NavigationNative.useNavigation();
-    (0, import_react41.useEffect)(() => {
+    (0, import_react40.useEffect)(() => {
       navigation2.setOptions({
         title: Strings.ASSET_BROWSER
       });
@@ -36179,7 +35965,7 @@ Type: ${asset.type}`,
     ]);
     var settings3 = useAssetBrowserSettings();
     var enabledFilters = settings3.enabledFilters;
-    var getFilteredAssets = (0, import_react41.useCallback)(() => {
+    var getFilteredAssets = (0, import_react40.useCallback)(() => {
       return Array.from(iterateAssets()).filter((asset) => {
         var type = String(asset.type ?? "").toLowerCase();
         return enabledFilters[type] === true;
@@ -36188,7 +35974,7 @@ Type: ${asset.type}`,
       enabledFilters,
       updateTick
     ]);
-    var all = (0, import_react41.useMemo)(() => getFilteredAssets(), [
+    var all = (0, import_react40.useMemo)(() => getFilteredAssets(), [
       getFilteredAssets
     ]);
     var toggleFilter = (filterId) => {
@@ -36290,7 +36076,7 @@ Type: ${asset.type}`,
       })
     });
   }
-  var import_react41, import_react_native76, IMAGE_FILES, TEXT_FILES;
+  var import_react40, import_react_native76, IMAGE_FILES, TEXT_FILES;
   var init_AssetBrowser = __esm({
     "src/rain/pages/Developer/AssetBrowser.tsx"() {
       "use strict";
@@ -36304,7 +36090,7 @@ Type: ${asset.type}`,
       init_common();
       init_components();
       init_i18n();
-      import_react41 = __toESM(require_react());
+      import_react40 = __toESM(require_react());
       import_react_native76 = __toESM(require_react_native());
       init_AssetDisplay();
       IMAGE_FILES = [
@@ -36362,10 +36148,10 @@ Type: ${asset.type}`,
   function Developer() {
     var settings3 = useSettings();
     var loaderConfig = useLoaderConfig();
-    var [isDebuggerConnected, setIsDebuggerConnected] = (0, import_react42.useState)(isConnectedToDebugger());
+    var [isDebuggerConnected, setIsDebuggerConnected] = (0, import_react41.useState)(isConnectedToDebugger());
     var styles5 = useStyles15();
     var navigation2 = NavigationNative.useNavigation();
-    (0, import_react42.useEffect)(() => {
+    (0, import_react41.useEffect)(() => {
       var interval = setInterval(() => {
         var connected = isConnectedToDebugger();
         if (connected !== isDebuggerConnected) setIsDebuggerConnected(connected);
@@ -36583,7 +36369,7 @@ Type: ${asset.type}`,
       })
     });
   }
-  var import_react42, import_react_native77, useStyles15;
+  var import_react41, import_react_native77, useStyles15;
   var init_Developer = __esm({
     "src/rain/pages/Developer/index.tsx"() {
       "use strict";
@@ -36602,7 +36388,7 @@ Type: ${asset.type}`,
       init_common();
       init_components();
       init_wrappers();
-      import_react42 = __toESM(require_react());
+      import_react41 = __toESM(require_react());
       import_react_native77 = __toESM(require_react_native());
       init_AssetBrowser();
       useStyles15 = createStyles({
@@ -36666,7 +36452,7 @@ Type: ${asset.type}`,
         },
         {
           key: "RAIN_CLOUDSYNC",
-          title: () => "Cloud Sync",
+          title: () => "Synchronisation cloud",
           icon: findAssetId2("CloudIcon"),
           render: () => Promise.resolve().then(() => (init_CloudSync(), CloudSync_exports))
         },
@@ -36698,7 +36484,7 @@ Type: ${asset.type}`,
     patchTabsUI(unpatches7);
     return () => unpatches7.forEach((u) => u());
   }
-  var import_react43, import_react_native78, settings_default7, registeredSections;
+  var import_react42, import_react_native78, settings_default7, registeredSections;
   var init_settings28 = __esm({
     "src/plugins/_core/settings/index.tsx"() {
       "use strict";
@@ -36715,7 +36501,7 @@ Type: ${asset.type}`,
       init_Developers();
       init_i18n();
       init_Updater();
-      import_react43 = __toESM(require_react());
+      import_react42 = __toESM(require_react());
       import_react_native78 = __toESM(require_react_native());
       init_tabs();
       init_settings27();
@@ -37158,14 +36944,14 @@ Type: ${asset.type}`,
     }
   });
 
-  // rain-plugins-importer:C:\Users\lambo\AppData\Local\Temp\claude\C--Users-lambo-Desktop-o8g7-ios\c079427c-49f1-4dbd-b5bf-738628fec37f\scratchpad\pub2\work\rain\src\plugins
+  // rain-plugins-importer:C:\Users\lambo\AppData\Local\Temp\claude\C--Users-lambo-Desktop-o8g7-ios\c079427c-49f1-4dbd-b5bf-738628fec37f\scratchpad\pub3\work\rain\src\plugins
   var plugins_exports2 = {};
   __export(plugins_exports2, {
     default: () => plugins_default2
   });
   var plugins_default2;
   var init_plugins2 = __esm({
-    "rain-plugins-importer:C:\\Users\\lambo\\AppData\\Local\\Temp\\claude\\C--Users-lambo-Desktop-o8g7-ios\\c079427c-49f1-4dbd-b5bf-738628fec37f\\scratchpad\\pub2\\work\\rain\\src\\plugins"() {
+    "rain-plugins-importer:C:\\Users\\lambo\\AppData\\Local\\Temp\\claude\\C--Users-lambo-Desktop-o8g7-ios\\c079427c-49f1-4dbd-b5bf-738628fec37f\\scratchpad\\pub3\\work\\rain\\src\\plugins"() {
       init_asyncIteratorSymbol();
       init_promiseAllSettled();
       plugins_default2 = {
