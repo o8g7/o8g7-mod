@@ -1,7 +1,6 @@
 import SettingsTextInput from "@api/ui/components/SettingsTextInput";
-import { SliderRow } from "@api/ui/components/SliderRow";
 import { findByProps } from "@metro";
-import { Stack, TableRow, TableRowGroup, TableSwitchRow } from "@metro/common/components";
+import { Stack, TableRowGroup, TableSwitchRow } from "@metro/common/components";
 import { ScrollView } from "react-native";
 
 import { useNitroRadarSettings } from "./storage";
@@ -30,42 +29,6 @@ export default () => {
                         label="Vibrer"
                         value={settings.vibrate}
                         onValueChange={(v: boolean) => updateSettings({ vibrate: v })}
-                    />
-                </TableRowGroup>
-                <TableRowGroup title="Réclamation automatique">
-                    <TableSwitchRow
-                        label="Réclamer le Nitro automatiquement"
-                        subLabel="⚠️ RISQUE DE BANNISSEMENT : Discord repère la réclamation automatique de codes cadeaux."
-                        value={settings.autoClaim}
-                        onValueChange={(v: boolean) => updateSettings({ autoClaim: v })}
-                    />
-                    <Card>
-                        <SliderRow
-                            label="Délai minimum avant de réclamer"
-                            value={settings.claimDelayMinMs}
-                            minimumValue={0}
-                            maximumValue={10000}
-                            suffix=" ms"
-                            onChange={(v: number) => updateSettings({ claimDelayMinMs: v })}
-                        />
-                    </Card>
-                    <Card>
-                        <SliderRow
-                            label="Délai maximum avant de réclamer"
-                            value={settings.claimDelayMaxMs}
-                            minimumValue={0}
-                            maximumValue={30000}
-                            suffix=" ms"
-                            onChange={(v: number) => updateSettings({ claimDelayMaxMs: v })}
-                        />
-                    </Card>
-                    <TableRow
-                        label="Comment ça marche"
-                        subLabel={
-                            "Un délai tiré au hasard entre les deux bornes précède chaque réclamation."
-                            + " Un délai nul est instantané, donc le plus voyant. L'app doit rester ouverte :"
-                            + " un plugin ne s'exécute pas en arrière-plan sur iOS."
-                        }
                     />
                 </TableRowGroup>
                 <TableRowGroup title="Exclusions (IDs séparés par des virgules)">

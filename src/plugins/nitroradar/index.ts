@@ -1,11 +1,9 @@
-/* NitroRadar pour Rain : détection des liens cadeaux, notification, et réclamation automatique optionnelle.
- * L'auto-claim est DÉSACTIVÉ par défaut (Discord sanctionne la réclamation automatique de cadeaux). */
+/* NitroRadar pour Rain : détection locale des liens cadeaux, sans auto-claim ni requête API. */
 import { showToast } from "@api/ui/toasts";
 import { FluxDispatcher, ReactNative } from "@metro/common";
 import { ChannelStore, GuildStore, UserStore } from "@metro/common/stores";
 import { definePlugin } from "@plugins";
 
-import { autoClaimCode, cancelPendingClaims, startClaims, stopClaims } from "./claim";
 import settings from "./settings";
 import { useNitroRadarSettings } from "./storage";
 
@@ -77,10 +75,6 @@ function onMessage(event: any) {
         const where = guildId ? GuildStore.getGuild?.(guildId)?.name ?? "Serveur" : "Message privé";
         showToast(`Cadeau Nitro repéré · ${where}`);
         if (opts.vibrate) ReactNative.Vibration?.vibrate?.(400);
-
-        if (opts.autoClaim) {
-            for (const code of codes) void autoClaimCode(code, channelId);
-        }
     } catch {
         // Ne pas interrompre la réception des messages si l'API interne change.
     }
@@ -88,16 +82,14 @@ function onMessage(event: any) {
 
 export default definePlugin({
     name: "NitroRadar",
-    description: "Signale les liens de cadeaux Nitro reçus (toast + vibration) et peut les réclamer automatiquement (⚠️ risqué, désactivé par défaut).",
+    description: "Signale les liens de cadeaux Nitro reçus (toast + vibration). Pas d'auto-claim.",
     author: [{ name: "o8g7", id: 0n }],
     id: "nitroradar",
-    version: "2.1.0",
+    version: "2.0.0",
     start() {
-        startClaims();
         FluxDispatcher.subscribe("MESSAGE_CREATE", onMessage);
     },
     stop() {
-        stopClaims();
         FluxDispatcher.unsubscribe("MESSAGE_CREATE", onMessage);
         seen.clear();
     },

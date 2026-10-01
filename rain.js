@@ -36520,113 +36520,8 @@ Type: ${asset.type}`,
         notifyForDMs: true,
         vibrate: true,
         ignoredGuilds: "",
-        ignoredChannels: "",
-        autoClaim: false,
-        claimDelayMinMs: 1200,
-        claimDelayMaxMs: 3500
+        ignoredChannels: ""
       }));
-    }
-  });
-
-  // src/plugins/_o8g7/nitroradar/claim.ts
-  function cancelPendingClaims() {
-    for (var pending of pendingDelays) {
-      clearTimeout(pending.timer);
-      pending.resolve(false);
-    }
-    pendingDelays.clear();
-  }
-  function startClaims() {
-    running = true;
-    lifecycle++;
-  }
-  function stopClaims() {
-    running = false;
-    lifecycle++;
-    cancelPendingClaims();
-  }
-  function waitForDelay(ms) {
-    if (ms <= 0) return Promise.resolve(true);
-    return new Promise((resolve) => {
-      var pending = {
-        timer: setTimeout(() => {
-          pendingDelays.delete(pending);
-          resolve(true);
-        }, ms),
-        resolve
-      };
-      pendingDelays.add(pending);
-    });
-  }
-  function canClaim(runId) {
-    return running && lifecycle === runId && useNitroRadarSettings.getState().autoClaim;
-  }
-  function redact(code) {
-    if (code.length <= 8) return "\u2022\u2022\u2022\u2022\u2022\u2022\u2022\u2022";
-    return `${code.slice(0, 4)}\u2026${code.slice(-4)}`;
-  }
-  function jitter() {
-    var { claimDelayMinMs, claimDelayMaxMs } = useNitroRadarSettings.getState();
-    var min = Math.max(0, claimDelayMinMs ?? 0);
-    var max = Math.max(min, claimDelayMaxMs ?? min);
-    return min + Math.floor(Math.random() * (max - min + 1));
-  }
-  function describeError(error, code) {
-    var raw = error?.body?.message ?? error?.body?.code ?? error?.message ?? "\xE9chec inconnu";
-    return String(raw).replaceAll(code, redact(code));
-  }
-  function autoClaimCode(code, channelId) {
-    return _async_to_generator(function* () {
-      if (inFlight.has(code)) return;
-      inFlight.add(code);
-      var runId = lifecycle;
-      var safeCode = redact(code);
-      try {
-        if (!(yield waitForDelay(jitter())) || !canClaim(runId)) return;
-        var response = yield fetch(`${API_BASE}/entitlements/gift-codes/${encodeURIComponent(code)}/redeem`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            channel_id: channelId ?? null,
-            payment_source_id: null
-          })
-        });
-        if (!canClaim(runId)) return;
-        if (!response.ok) {
-          var body = yield response.json().catch(() => null);
-          throw body ?? new Error(`HTTP ${response.status}`);
-        }
-        if (useNitroRadarSettings.getState().vibrate) ReactNative.Vibration?.vibrate?.(400);
-        showToast(`Nitro r\xE9clam\xE9 \u2705 ${safeCode}`);
-        logger.info(`[NitroRadar] Auto-claim OK: ${safeCode}`);
-      } catch (error) {
-        if (!canClaim(runId)) return;
-        var reason = describeError(error, code);
-        showToast(`Nitro non r\xE9clam\xE9 \xB7 ${safeCode} \u2014 ${reason}`);
-        logger.warn(`[NitroRadar] Auto-claim KO: ${safeCode} \u2014 ${reason}`);
-      } finally {
-        inFlight.delete(code);
-      }
-    })();
-  }
-  var API_BASE, running, lifecycle, pendingDelays, inFlight;
-  var init_claim = __esm({
-    "src/plugins/_o8g7/nitroradar/claim.ts"() {
-      "use strict";
-      init_asyncIteratorSymbol();
-      init_promiseAllSettled();
-      init_async_to_generator();
-      init_toasts();
-      init_logger();
-      init_common();
-      init_storage37();
-      API_BASE = "https://discord.com/api/v9";
-      running = false;
-      lifecycle = 0;
-      pendingDelays = /* @__PURE__ */ new Set();
-      inFlight = /* @__PURE__ */ new Set();
     }
   });
 
@@ -36639,7 +36534,6 @@ Type: ${asset.type}`,
       init_promiseAllSettled();
       init_jsxRuntime();
       init_SettingsTextInput();
-      init_SliderRow();
       init_metro();
       init_components();
       import_react_native80 = __toESM(require_react_native());
@@ -36682,47 +36576,6 @@ Type: ${asset.type}`,
                     onValueChange: (v2) => updateSettings({
                       vibrate: v2
                     })
-                  })
-                ]
-              }),
-              /* @__PURE__ */ jsxs(TableRowGroup, {
-                title: "R\xE9clamation automatique",
-                children: [
-                  /* @__PURE__ */ jsx(TableSwitchRow, {
-                    label: "R\xE9clamer le Nitro automatiquement",
-                    subLabel: "\u26A0\uFE0F RISQUE DE BANNISSEMENT : Discord rep\xE8re la r\xE9clamation automatique de codes cadeaux.",
-                    value: settings3.autoClaim,
-                    onValueChange: (v2) => updateSettings({
-                      autoClaim: v2
-                    })
-                  }),
-                  /* @__PURE__ */ jsx(Card8, {
-                    children: /* @__PURE__ */ jsx(SliderRow, {
-                      label: "D\xE9lai minimum avant de r\xE9clamer",
-                      value: settings3.claimDelayMinMs,
-                      minimumValue: 0,
-                      maximumValue: 1e4,
-                      suffix: " ms",
-                      onChange: (v2) => updateSettings({
-                        claimDelayMinMs: v2
-                      })
-                    })
-                  }),
-                  /* @__PURE__ */ jsx(Card8, {
-                    children: /* @__PURE__ */ jsx(SliderRow, {
-                      label: "D\xE9lai maximum avant de r\xE9clamer",
-                      value: settings3.claimDelayMaxMs,
-                      minimumValue: 0,
-                      maximumValue: 3e4,
-                      suffix: " ms",
-                      onChange: (v2) => updateSettings({
-                        claimDelayMaxMs: v2
-                      })
-                    })
-                  }),
-                  /* @__PURE__ */ jsx(TableRow, {
-                    label: "Comment \xE7a marche",
-                    subLabel: "Un d\xE9lai tir\xE9 au hasard entre les deux bornes pr\xE9c\xE8de chaque r\xE9clamation. Un d\xE9lai nul est instantan\xE9, donc le plus voyant. L'app doit rester ouverte : un plugin ne s'ex\xE9cute pas en arri\xE8re-plan sur iOS."
                   })
                 ]
               }),
@@ -36814,14 +36667,11 @@ Type: ${asset.type}`,
       if (guildId && idList(opts.ignoredGuilds).has(guildId)) return;
       var codes = extractCodes(message);
       if (!codes.length) return;
-      var unseen = codes.map((code2) => remember(`${message.id}:${code2}`));
+      var unseen = codes.map((code) => remember(`${message.id}:${code}`));
       if (!unseen.some(Boolean)) return;
       var where = guildId ? GuildStore.getGuild?.(guildId)?.name ?? "Serveur" : "Message priv\xE9";
       showToast(`Cadeau Nitro rep\xE9r\xE9 \xB7 ${where}`);
       if (opts.vibrate) ReactNative.Vibration?.vibrate?.(400);
-      if (opts.autoClaim) {
-        for (var code of codes) void autoClaimCode(code, channelId);
-      }
     } catch (unused) {
     }
   }
@@ -36835,7 +36685,6 @@ Type: ${asset.type}`,
       init_common();
       init_stores();
       init_plugins3();
-      init_claim();
       init_settings30();
       init_storage37();
       NITRO_REGEX = /(?:discord\.gift|discord(?:app)?\.com\/gifts)\/([a-zA-Z0-9-_]{16,24})/gi;
@@ -36843,7 +36692,7 @@ Type: ${asset.type}`,
       SEEN_MAX = 500;
       nitroradar_default = definePlugin({
         name: "NitroRadar",
-        description: "Signale les liens de cadeaux Nitro re\xE7us (toast + vibration) et peut les r\xE9clamer automatiquement (\u26A0\uFE0F risqu\xE9, d\xE9sactiv\xE9 par d\xE9faut).",
+        description: "Signale les liens de cadeaux Nitro re\xE7us (toast + vibration). Pas d'auto-claim.",
         author: [
           {
             name: "o8g7",
@@ -36851,13 +36700,11 @@ Type: ${asset.type}`,
           }
         ],
         id: "nitroradar",
-        version: "2.1.0",
+        version: "2.0.0",
         start() {
-          startClaims();
           FluxDispatcher.subscribe("MESSAGE_CREATE", onMessage2);
         },
         stop() {
-          stopClaims();
           FluxDispatcher.unsubscribe("MESSAGE_CREATE", onMessage2);
           seen.clear();
         },
@@ -36866,14 +36713,14 @@ Type: ${asset.type}`,
     }
   });
 
-  // rain-plugins-importer:C:\Users\lambo\Desktop\o8g7-ios\work\rain\src\plugins
+  // rain-plugins-importer:C:\Users\lambo\AppData\Local\Temp\claude\C--Users-lambo-Desktop-o8g7-ios\c079427c-49f1-4dbd-b5bf-738628fec37f\scratchpad\p347\work\rain\src\plugins
   var plugins_exports2 = {};
   __export(plugins_exports2, {
     default: () => plugins_default2
   });
   var plugins_default2;
   var init_plugins2 = __esm({
-    "rain-plugins-importer:C:\\Users\\lambo\\Desktop\\o8g7-ios\\work\\rain\\src\\plugins"() {
+    "rain-plugins-importer:C:\\Users\\lambo\\AppData\\Local\\Temp\\claude\\C--Users-lambo-Desktop-o8g7-ios\\c079427c-49f1-4dbd-b5bf-738628fec37f\\scratchpad\\p347\\work\\rain\\src\\plugins"() {
       init_asyncIteratorSymbol();
       init_promiseAllSettled();
       plugins_default2 = {
